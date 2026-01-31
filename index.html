@@ -837,10 +837,24 @@
         }
 
         function updateQuizScore() {
-            document.getElementById('quizScore').textContent = `Score: ${quizScore} / ${quizTotal}`;
+            document.getElementById('quizScore').textContent = `Score: ${quizScore} / 10`;
         }
 
         function generateQuizQuestion() {
+            // Check if we've completed 10 questions
+            if (quizTotal >= 10) {
+                const finalScore = quizScore;
+                resetQuiz();
+                // Show a brief message about the score before starting new round
+                const feedbackDiv = document.getElementById('quizFeedback');
+                feedbackDiv.className = 'quiz-feedback correct';
+                feedbackDiv.textContent = `🎉 Round complete! You scored ${finalScore}/10. Starting new round...`;
+                feedbackDiv.style.display = 'block';
+                setTimeout(() => {
+                    feedbackDiv.style.display = 'none';
+                }, 2000);
+            }
+            
             quizAnswered = false;
             document.getElementById('quizFeedback').style.display = 'none';
             
@@ -916,7 +930,11 @@
                     }
                 });
                 feedbackDiv.className = 'quiz-feedback incorrect';
-                feedbackDiv.textContent = `✗ Not quite. The best match was ${correctWine.name}.`;
+                
+                // Get key flavors from the selected wine
+                const selectedFlavors = selectedWine.flavors.slice(0, 5).join(', ');
+                
+                feedbackDiv.innerHTML = `✗ Not quite. You chose <strong>${selectedWine.name}</strong>, which has flavors of: ${selectedFlavors}.<br><br>The best match was <strong>${correctWine.name}</strong>, which is ${currentQuizProfile.description.toLowerCase()}.`;
             }
             
             feedbackDiv.style.display = 'block';
