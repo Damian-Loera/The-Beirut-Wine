@@ -760,7 +760,7 @@
             } else {
                 document.getElementById('flashcardMode').style.display = 'none';
                 document.getElementById('quizMode').style.display = 'block';
-                document.getElementById('filterSection').style.display = 'none';
+                document.getElementById('filterSection').style.display = 'block'; // Keep filters visible in quiz mode
                 resetQuiz();
                 generateQuizQuestion();
             }
@@ -783,6 +783,12 @@
             
             currentIndex = 0;
             displayCard();
+            
+            // If in quiz mode, reset and generate new question with filtered wines
+            if (currentMode === 'quiz') {
+                resetQuiz();
+                generateQuizQuestion();
+            }
         }
 
         function displayCard() {
@@ -861,8 +867,8 @@
             // Pick a random flavor profile
             currentQuizProfile = flavorProfiles[Math.floor(Math.random() * flavorProfiles.length)];
             
-            // Find wines that match this profile
-            const matchingWines = allWines.filter(wine => 
+            // Find wines that match this profile from the filtered wines list
+            const matchingWines = wines.filter(wine => 
                 currentQuizProfile.keywords.some(keyword => 
                     wine.flavors.some(flavor => flavor.toLowerCase().includes(keyword.toLowerCase()))
                 )
@@ -876,8 +882,8 @@
             // Pick a correct answer
             const correctWine = matchingWines[Math.floor(Math.random() * matchingWines.length)];
             
-            // Pick 3 random incorrect answers
-            const incorrectWines = allWines
+            // Pick 3 random incorrect answers from the filtered wines
+            const incorrectWines = wines
                 .filter(w => w.name !== correctWine.name)
                 .sort(() => 0.5 - Math.random())
                 .slice(0, 3);
