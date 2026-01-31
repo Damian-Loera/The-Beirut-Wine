@@ -725,15 +725,15 @@
         ];
 
         const flavorProfiles = [
-            { description: "Bold and fruit-forward", keywords: ["bold", "fruit-forward", "rich", "intense"] },
-            { description: "Elegant and silky", keywords: ["elegant", "silky", "smooth", "refined", "polished"] },
-            { description: "Earthy and savory", keywords: ["earthy", "savory", "herbs", "minerals", "leather"] },
-            { description: "Spicy and complex", keywords: ["spice", "spicy", "complex", "pepper", "clove", "cinnamon"] },
-            { description: "Chocolatey and rich", keywords: ["chocolate", "cocoa", "mocha", "espresso", "coffee"] },
-            { description: "Velvety and plush", keywords: ["velvety", "plush", "luxurious", "lush"] },
-            { description: "Full-bodied and structured", keywords: ["full-bodied", "structured", "firm", "dense"] },
-            { description: "Floral and aromatic", keywords: ["floral", "violets", "rose", "lavender", "aromatic"] },
-            { description: "Dark fruit dominant", keywords: ["blackberry", "blackcurrant", "plum", "dark cherry"] }
+            { description: "Bold and fruit-forward with rich, intense dark fruit flavors", keywords: ["bold", "fruit-forward", "rich", "intense"] },
+            { description: "Elegant and silky with smooth, refined texture and polished tannins", keywords: ["elegant", "silky", "smooth", "refined", "polished"] },
+            { description: "Earthy and savory with herbal, mineral, and leather notes", keywords: ["earthy", "savory", "herbs", "minerals", "leather"] },
+            { description: "Spicy and complex with layers of pepper, clove, and warm spices", keywords: ["spice", "spicy", "complex", "pepper", "clove", "cinnamon"] },
+            { description: "Chocolatey and rich with dark cocoa, mocha, and espresso notes", keywords: ["chocolate", "cocoa", "mocha", "espresso", "coffee"] },
+            { description: "Velvety and plush with luxurious texture and soft, lush mouthfeel", keywords: ["velvety", "plush", "luxurious", "lush"] },
+            { description: "Full-bodied and structured with firm tannins and dense concentration", keywords: ["full-bodied", "structured", "firm", "dense"] },
+            { description: "Floral and aromatic with violet, rose petal, and lavender notes", keywords: ["floral", "violets", "rose", "lavender", "aromatic"] },
+            { description: "Dark fruit dominant with concentrated blackberry, black currant, and plum", keywords: ["blackberry", "blackcurrant", "plum", "dark cherry"] }
         ];
 
         let wines = [...allWines];
@@ -941,10 +941,11 @@
                 });
                 feedbackDiv.className = 'quiz-feedback incorrect';
                 
-                // Get key flavors from the selected wine
+                // Get key flavors from both wines
                 const selectedFlavors = selectedWine.flavors.slice(0, 5).join(', ');
+                const correctFlavors = correctWine.flavors.slice(0, 5).join(', ');
                 
-                feedbackDiv.innerHTML = `✗ Not quite. You chose <strong>${selectedWine.name}</strong>, which has flavors of: ${selectedFlavors}.<br><br>The best match was <strong>${correctWine.name}</strong>, which is ${currentQuizProfile.description.toLowerCase()}.`;
+                feedbackDiv.innerHTML = `✗ Not quite. You chose <strong>${selectedWine.name}</strong>, which has flavors of: ${selectedFlavors}.<br><br>The best match was <strong>${correctWine.name}</strong>, which is ${currentQuizProfile.description.toLowerCase()} with flavors of: ${correctFlavors}.`;
             }
             
             feedbackDiv.style.display = 'block';
