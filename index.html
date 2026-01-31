@@ -926,7 +926,11 @@
                 quizScore++;
                 selectedDiv.classList.add('correct');
                 feedbackDiv.className = 'quiz-feedback correct';
-                feedbackDiv.textContent = `✓ Correct! ${correctWine.name} is ${currentQuizProfile.description.toLowerCase()}.`;
+                
+                // Get key flavors from the correct wine
+                const correctFlavors = correctWine.flavors.slice(0, 5).join(', ');
+                
+                feedbackDiv.innerHTML = `✓ Correct! <strong>${correctWine.name}</strong> is ${currentQuizProfile.description.toLowerCase()} with flavors of: ${correctFlavors}.`;
             } else {
                 selectedDiv.classList.add('incorrect');
                 // Highlight the correct answer
