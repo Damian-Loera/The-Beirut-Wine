@@ -495,103 +495,17 @@
     </div>
 
     <script>
-        const allWines = [
-            // North American Reds
+         const allWines = [
+            // NORTH AMERICAN REDS
+            
+            // Bordeaux Blends - Complex & Layered
             {
                 name: "Chappellet Cuvée",
                 type: "Bordeaux Blend",
                 region: "Napa Valley, California",
                 continent: "north",
                 details: "Blend: Cabernet Sauvignon, Cabernet Franc, Merlot, Malbec, Petit Verdot. Lush, layered, and complex. Notes of cherry, plum, clove, coffee, and chocolate.",
-                flavors: ["cherry", "plum", "coffee", "chocolate", "complex", "layered"]
-            },
-            {
-                name: "Turley Del Barba",
-                type: "Zinfandel",
-                region: "Contra Costa, California",
-                continent: "north",
-                details: "Elegant and medium-bodied with fine tannins. Flavors of red cherry, licorice, and Earl Grey tea.",
-                flavors: ["red cherry", "licorice", "tea", "elegant", "medium-bodied"]
-            },
-            {
-                name: "Clark & Telephone",
-                type: "Pinot Noir",
-                region: "Santa Maria Valley, California",
-                continent: "north",
-                details: "Bold, opulent, and fruit-forward with deep color and lush velvety texture. Key notes of blackberry, baking spices, and cocoa. Flavors of crushed cherry, raspberry, and oak with polished tannins.",
-                flavors: ["blackberry", "cherry", "raspberry", "spices", "cocoa", "bold", "fruit-forward"]
-            },
-            {
-                name: "EnRoute Far Niente",
-                type: "Pinot Noir",
-                region: "Russian River, California",
-                continent: "north",
-                details: "Silky texture aged in French oak with fine-grained tannins. Aromas of red cherries, wild raspberry, rose petal, clove, and cola. Broad and vibrant with flavors of black cherry, plum tart, and preserves. Long elegant finish with notes of dark chocolate and tea.",
-                flavors: ["cherry", "raspberry", "rose", "cola", "chocolate", "tea", "silky", "elegant"]
-            },
-            {
-                name: "Austin Hope",
-                type: "Cabernet Sauvignon",
-                region: "Paso Robles, California",
-                continent: "north",
-                details: "Flavors of blackberry, cherry, and plum with notes of mocha, vanilla, nutmeg, brown butter, and spice. Smooth finish with smooth tannins. Aged in French and American oak. Pairs well with aged cheeses and grilled meats.",
-                flavors: ["blackberry", "cherry", "plum", "mocha", "vanilla", "nutmeg", "spice"]
-            },
-            {
-                name: "Duckhorn",
-                type: "Cabernet Sauvignon",
-                region: "Napa Valley, California",
-                continent: "north",
-                details: "Medium to full-bodied with bright acidity. Flavors of blackberry and black raspberry with rich chocolate tannins and notions of black tea and oak. Sophisticated with a long luxurious finish.",
-                flavors: ["blackberry", "raspberry", "chocolate", "tea", "oak", "sophisticated"]
-            },
-            {
-                name: "Epoch Estate",
-                type: "Red Blend",
-                region: "Paso Robles, California",
-                continent: "north",
-                details: "Full-bodied and thick. Complex Rhône-style blend: Syrah, Grenache, Mourvèdre, Tempranillo, Zinfandel, and Graciano. Rich flavors of dark berries with savory notes of herbs and leather. Firm tannins and long finish. Aged in French oak. Benefits from decanting.",
-                flavors: ["dark berries", "herbs", "leather", "complex", "savory", "full-bodied"]
-            },
-            {
-                name: "Willful Wine Cuvée",
-                type: "Pinot Noir",
-                region: "Willamette Valley, Oregon",
-                continent: "north",
-                details: "Flavors of red cherry, cranberry, strawberry, and candied red apple. Earthy and spicy with licorice, pepper, and lavender. Other notes: hibiscus tea, tobacco, oak, and vanilla. Aged in French oak. Elegant with balanced acidity and silky texture. Pairs well with mushrooms, chicken, pork, duck, salmon, and lamb.",
-                flavors: ["cherry", "cranberry", "strawberry", "earthy", "spicy", "pepper", "lavender", "elegant"]
-            },
-            {
-                name: "Quilt Reserve",
-                type: "Cabernet Sauvignon",
-                region: "Napa Valley, California",
-                continent: "north",
-                details: "Luxurious, full-bodied, and plush with deep ruby color. Intense ripe notes of blackberry jam, dark chocolate, crème de cassis (black currants), toasted hazelnut. Velvety rich texture aged in French oak with structured tannins and smooth finish.",
-                flavors: ["blackberry", "chocolate", "cassis", "hazelnut", "luxurious", "velvety", "plush"]
-            },
-            {
-                name: "Adobe Road Blue Dog",
-                type: "Cabernet Sauvignon",
-                region: "Sonoma County, California",
-                continent: "north",
-                details: "Rich dark fruit flavors of plum and blackberry with notes of spice, oak, and a smooth long finish. Blends grapes from both Napa and Sonoma regions, combining Napa's dark fruit and texture with Sonoma's spicy complexity. Luxurious and well-balanced.",
-                flavors: ["plum", "blackberry", "spice", "oak", "rich", "balanced"]
-            },
-            {
-                name: "Caymus",
-                type: "Cabernet Sauvignon",
-                region: "Napa Valley, California",
-                continent: "north",
-                details: "Fruit-forward with deep dark fruit. Flavors of blackberry, cherry, cassis, cocoa, vanilla, and sweet tobacco. Rich velvety texture with soft tannins. Aged in oak.",
-                flavors: ["blackberry", "cherry", "cassis", "cocoa", "vanilla", "tobacco", "fruit-forward", "velvety"]
-            },
-            {
-                name: "Artemis Stags Leap",
-                type: "Cabernet Sauvignon",
-                region: "Napa Valley, California",
-                continent: "north",
-                details: "Nose reveals aromas of dark fruits, tobacco, ripe figs, raspberries, and cherry with subtle hint of oak. Silky in the mouth with long savory finish showcasing chocolate, dark cherry, and other berry notes.",
-                flavors: ["dark fruits", "tobacco", "figs", "cherry", "chocolate", "silky", "savory"]
+                flavors: ["complex", "layered", "lush"]
             },
             {
                 name: "Papillon Orin Swift",
@@ -599,47 +513,7 @@
                 region: "Napa Valley, California",
                 continent: "north",
                 details: "Blend: Cabernet Sauvignon, Cabernet Franc, Malbec, and Petit Verdot. Aromatic notes of ripe cassis, blackberry, cedar box, and allspice. Round and weighty flavor with finishing notes of Madagascar vanilla and toffee. Aged in French oak.",
-                flavors: ["cassis", "blackberry", "cedar", "allspice", "vanilla", "toffee"]
-            },
-            {
-                name: "Bevan Cellars",
-                type: "Pinot Noir",
-                region: "Petaluma Gap, California",
-                continent: "north",
-                details: "Rich and full-bodied (appeals to Cabernet lovers). Intense fruit flavors like black cherry and pomegranate with complex spice notes and plush silky tannins. Notes of cola, tea, and baking spices. Plush and silky with round mid-palate. Long finish with hints of toasted oak and vanilla.",
-                flavors: ["cherry", "pomegranate", "cola", "tea", "spices", "oak", "vanilla", "full-bodied", "plush"]
-            },
-            {
-                name: "Silver Oak",
-                type: "Cabernet Sauvignon",
-                region: "Alexander Valley, California",
-                continent: "north",
-                details: "Soft and velvety, fruit-forward at the core. Strong notes of blackberry, blackcurrant, plum, and dark cherry. Aged in American oak adding layers of vanilla, cedar, spice, clove, and sweet baking notes. Hints of tobacco, minerals, and coffee beans in the aromas.",
-                flavors: ["blackberry", "blackcurrant", "plum", "cherry", "vanilla", "cedar", "tobacco", "coffee", "velvety"]
-            },
-            {
-                name: "Darioush",
-                type: "Cabernet Sauvignon",
-                region: "Napa Valley, California",
-                continent: "north",
-                details: "Rich notes of black currant, plum, black raspberry, and blueberry. Aromas include sun-dried fig, graphite, cedar, and spiced sandalwood. Full-bodied, velvety, and dense with long structured finish lingering with spice, fruit, and oak notes.",
-                flavors: ["currant", "plum", "raspberry", "blueberry", "fig", "cedar", "spice", "full-bodied", "velvety"]
-            },
-            {
-                name: "Dunn Vineyards",
-                type: "Cabernet Sauvignon",
-                region: "Napa Valley, California",
-                continent: "north",
-                details: "Deep aromas of blackcurrant, black cherry, blueberry, spicy cedarwood, hints of violets, and dried herbs. Medium to full-bodied with inky dark fruits such as plum, mocha, leather, sage, and licorice. Polished yet firm tannins.",
-                flavors: ["blackcurrant", "cherry", "blueberry", "cedar", "violets", "herbs", "mocha", "leather", "licorice"]
-            },
-            {
-                name: "Aloft",
-                type: "Cabernet Sauvignon",
-                region: "Howell Mountain, California",
-                continent: "north",
-                details: "Dark fruits including blackberry, blackcurrant, and black cherry with hints of black pepper, sun-dried thyme, oregano, lavender, and savory herbs. Rich fruit core with tobacco leaf, coffee bean, black leaf tea, and licorice. Oaky finish. Medium to full-bodied with fine tannins (can be chalky early on). Benefits from decanting.",
-                flavors: ["blackberry", "blackcurrant", "cherry", "pepper", "herbs", "tobacco", "coffee", "tea", "licorice", "savory"]
+                flavors: ["complex", "rich", "layered"]
             },
             {
                 name: "Opus One Overture",
@@ -647,15 +521,93 @@
                 region: "Napa Valley, California",
                 continent: "north",
                 details: "Aromas include bright cherry, plum, red currant, blackberry, and floral hints. Can be spicy and herby with anise, cocoa, and toasted almond. On the palate: juicy with notes of blueberry, wild cherry, plum, dark chocolate, coffee, vanilla, and mocha. Medium to full-bodied. French oak helps soften the tannins.",
-                flavors: ["cherry", "plum", "currant", "blackberry", "floral", "anise", "cocoa", "chocolate", "coffee", "vanilla", "mocha"]
+                flavors: ["elegant", "balanced", "complex"]
+            },
+            
+            // Elegant Pinot Noirs & Lighter Reds
+            {
+                name: "Turley Del Barba",
+                type: "Zinfandel",
+                region: "Contra Costa, California",
+                continent: "north",
+                details: "Elegant and medium-bodied with fine tannins. Flavors of red cherry, licorice, and Earl Grey tea.",
+                flavors: ["elegant", "refined"]
             },
             {
-                name: "Harlan The Mascot",
+                name: "EnRoute Far Niente",
+                type: "Pinot Noir",
+                region: "Russian River, California",
+                continent: "north",
+                details: "Silky texture aged in French oak with fine-grained tannins. Aromas of red cherries, wild raspberry, rose petal, clove, and cola. Broad and vibrant with flavors of black cherry, plum tart, and preserves. Long elegant finish with notes of dark chocolate and tea.",
+                flavors: ["elegant", "silky", "refined"]
+            },
+            {
+                name: "Willful Wine Cuvée",
+                type: "Pinot Noir",
+                region: "Willamette Valley, Oregon",
+                continent: "north",
+                details: "Flavors of red cherry, cranberry, strawberry, and candied red apple. Earthy and spicy with licorice, pepper, and lavender. Other notes: hibiscus tea, tobacco, oak, and vanilla. Aged in French oak. Elegant with balanced acidity and silky texture. Pairs well with mushrooms, chicken, pork, duck, salmon, and lamb.",
+                flavors: ["earthy", "spicy", "elegant"]
+            },
+            
+            // Bold & Fruit-Forward
+            {
+                name: "Clark & Telephone",
+                type: "Pinot Noir",
+                region: "Santa Maria Valley, California",
+                continent: "north",
+                details: "Bold, opulent, and fruit-forward with deep color and lush velvety texture. Key notes of blackberry, baking spices, and cocoa. Flavors of crushed cherry, raspberry, and oak with polished tannins.",
+                flavors: ["bold", "fruit-forward", "opulent"]
+            },
+            {
+                name: "Austin Hope",
+                type: "Cabernet Sauvignon",
+                region: "Paso Robles, California",
+                continent: "north",
+                details: "Flavors of blackberry, cherry, and plum with notes of mocha, vanilla, nutmeg, brown butter, and spice. Smooth finish with smooth tannins. Aged in French and American oak. Pairs well with aged cheeses and grilled meats.",
+                flavors: ["rich", "fruit-forward"]
+            },
+            {
+                name: "Caymus",
                 type: "Cabernet Sauvignon",
                 region: "Napa Valley, California",
                 continent: "north",
-                details: "Aromas include red and dark fruits such as plum, raspberry, cherry, and blackberry with gentle floral notes of violets and savory undertones. Palate includes flavors of plum, black cherry, and currant making a broad and inviting mid-palate. Poised and bright wine with smooth fine tannins and approachable texture.",
-                flavors: ["plum", "raspberry", "cherry", "blackberry", "floral", "violets", "savory", "bright"]
+                details: "Fruit-forward with deep dark fruit. Flavors of blackberry, cherry, cassis, cocoa, vanilla, and sweet tobacco. Rich velvety texture with soft tannins. Aged in oak.",
+                flavors: ["fruit-forward", "rich", "velvety"]
+            },
+            {
+                name: "Silver Oak",
+                type: "Cabernet Sauvignon",
+                region: "Alexander Valley, California",
+                continent: "north",
+                details: "Soft and velvety, fruit-forward at the core. Strong notes of blackberry, blackcurrant, plum, and dark cherry. Aged in American oak adding layers of vanilla, cedar, spice, clove, and sweet baking notes. Hints of tobacco, minerals, and coffee beans in the aromas.",
+                flavors: ["velvety", "fruit-forward"]
+            },
+            {
+                name: "Adobe Road Blue Dog",
+                type: "Cabernet Sauvignon",
+                region: "Sonoma County, California",
+                continent: "north",
+                details: "Rich dark fruit flavors of plum and blackberry with notes of spice, oak, and a smooth long finish. Blends grapes from both Napa and Sonoma regions, combining Napa's dark fruit and texture with Sonoma's spicy complexity. Luxurious and well-balanced.",
+                flavors: ["balanced", "fruit-forward", "spicy"]
+            },
+            
+            // Plush & Luxurious
+            {
+                name: "Quilt Reserve",
+                type: "Cabernet Sauvignon",
+                region: "Napa Valley, California",
+                continent: "north",
+                details: "Luxurious, full-bodied, and plush with deep ruby color. Intense ripe notes of blackberry jam, dark chocolate, crème de cassis (black currants), toasted hazelnut. Velvety rich texture aged in French oak with structured tannins and smooth finish.",
+                flavors: ["plush", "luxurious", "rich"]
+            },
+            {
+                name: "Bevan Cellars",
+                type: "Pinot Noir",
+                region: "Petaluma Gap, California",
+                continent: "north",
+                details: "Rich and full-bodied (appeals to Cabernet lovers). Intense fruit flavors like black cherry and pomegranate with complex spice notes and plush silky tannins. Notes of cola, tea, and baking spices. Plush and silky with round mid-palate. Long finish with hints of toasted oak and vanilla.",
+                flavors: ["full-bodied", "rich", "plush"]
             },
             {
                 name: "Caymus Special Selection",
@@ -663,7 +615,33 @@
                 region: "Napa Valley, California",
                 continent: "north",
                 details: "Aromas include rich blackberry, blackcurrant, and dark cherry with oak-derived spices like vanilla, cocoa, and warm spices from French oak aging. Tobacco, leather, and earthy notes. Very juicy palate with ripe fruits like blackberry, boysenberry, mulberry, and plum. Second layer includes espresso, chocolate, licorice, anise, and cedar. Full-bodied and plush.",
-                flavors: ["blackberry", "blackcurrant", "cherry", "vanilla", "cocoa", "tobacco", "leather", "espresso", "chocolate", "plush", "full-bodied"]
+                flavors: ["plush", "rich", "full-bodied"]
+            },
+            
+            // Balanced & Refined
+            {
+                name: "Duckhorn",
+                type: "Cabernet Sauvignon",
+                region: "Napa Valley, California",
+                continent: "north",
+                details: "Medium to full-bodied with bright acidity. Flavors of blackberry and black raspberry with rich chocolate tannins and notions of black tea and oak. Sophisticated with a long luxurious finish.",
+                flavors: ["sophisticated", "balanced", "refined"]
+            },
+            {
+                name: "Harlan The Mascot",
+                type: "Cabernet Sauvignon",
+                region: "Napa Valley, California",
+                continent: "north",
+                details: "Aromas include red and dark fruits such as plum, raspberry, cherry, and blackberry with gentle floral notes of violets and savory undertones. Palate includes flavors of plum, black cherry, and currant making a broad and inviting mid-palate. Poised and bright wine with smooth fine tannins and approachable texture.",
+                flavors: ["elegant", "refined", "approachable"]
+            },
+            {
+                name: "Artemis Stags Leap",
+                type: "Cabernet Sauvignon",
+                region: "Napa Valley, California",
+                continent: "north",
+                details: "Nose reveals aromas of dark fruits, tobacco, ripe figs, raspberries, and cherry with subtle hint of oak. Silky in the mouth with long savory finish showcasing chocolate, dark cherry, and other berry notes.",
+                flavors: ["silky", "elegant", "savory"]
             },
             {
                 name: "Quintessa",
@@ -671,24 +649,55 @@
                 region: "Rutherford, California",
                 continent: "north",
                 details: "Aromas include ripe blackberry, cassis, and black cherry with subtle notes of violet, blueberry, cedar, graphite, vanilla, and touches of tobacco. Full-bodied and polished with concentrated dark fruit core like blackberry, boysenberry, plum, and blackcurrant. Layers of espresso and sweet oak spice. Velvety and fine-grained tannins. Well-rounded.",
-                flavors: ["blackberry", "cassis", "cherry", "violet", "blueberry", "cedar", "vanilla", "tobacco", "espresso", "velvety", "full-bodied"]
+                flavors: ["polished", "elegant", "full-bodied"]
             },
-            // South American Reds
+            
+            // Full-Bodied & Structured
+            {
+                name: "Darioush",
+                type: "Cabernet Sauvignon",
+                region: "Napa Valley, California",
+                continent: "north",
+                details: "Rich notes of black currant, plum, black raspberry, and blueberry. Aromas include sun-dried fig, graphite, cedar, and spiced sandalwood. Full-bodied, velvety, and dense with long structured finish lingering with spice, fruit, and oak notes.",
+                flavors: ["full-bodied", "structured", "dense"]
+            },
+            {
+                name: "Dunn Vineyards",
+                type: "Cabernet Sauvignon",
+                region: "Napa Valley, California",
+                continent: "north",
+                details: "Deep aromas of blackcurrant, black cherry, blueberry, spicy cedarwood, hints of violets, and dried herbs. Medium to full-bodied with inky dark fruits such as plum, mocha, leather, sage, and licorice. Polished yet firm tannins.",
+                flavors: ["structured", "firm", "concentrated", "powerful"]
+            },
+            
+            // Earthy & Savory
+            {
+                name: "Epoch Estate",
+                type: "Red Blend",
+                region: "Paso Robles, California",
+                continent: "north",
+                details: "Full-bodied and thick. Complex Rhône-style blend: Syrah, Grenache, Mourvèdre, Tempranillo, Zinfandel, and Graciano. Rich flavors of dark berries with savory notes of herbs and leather. Firm tannins and long finish. Aged in French oak. Benefits from decanting.",
+                flavors: ["savory", "earthy", "full-bodied"]
+            },
+            {
+                name: "Aloft",
+                type: "Cabernet Sauvignon",
+                region: "Howell Mountain, California",
+                continent: "north",
+                details: "Dark fruits including blackberry, blackcurrant, and black cherry with hints of black pepper, sun-dried thyme, oregano, lavender, and savory herbs. Rich fruit core with tobacco leaf, coffee bean, black leaf tea, and licorice. Oaky finish. Medium to full-bodied with fine tannins (can be chalky early on). Benefits from decanting.",
+                flavors: ["savory", "herbal", "structured"]
+            },
+            
+            // SOUTH AMERICAN REDS
+            
+            // Bold & Spicy
             {
                 name: "Garzon Reserva",
                 type: "Tannat",
                 region: "Maldonado, Uruguay",
                 continent: "south",
                 details: "Bold & flavorful red. Aromas: juicy plum, blackberry, black cherry. Spices and herbs such as gentle violet and cardamom. Palate: concentrated ripe black and red fruits, including plum and raspberry leading the flavor. Secondary notes express some licorice, tobacco, or balsamic touches that accent the fruit. Hints of dark chocolate, cedar or black pepper can appear mid palate. Medium to full-bodied with a juicy presence.",
-                flavors: ["plum", "blackberry", "cherry", "violet", "cardamom", "raspberry", "licorice", "tobacco", "chocolate", "cedar", "pepper", "bold", "juicy"]
-            },
-            {
-                name: "El Enimigo",
-                type: "Malbec",
-                region: "Mendoza, Argentina",
-                continent: "south",
-                details: "Fermented with a small amount of Cabernet Franc. Rich concentrated and expressive that balances bold dark fruit, floral spice, and earthy tones. Firm but refined tannin with a long and elegant finish. Aromas: expressive blackberry, black cherry, plum, and dark berry. Hints of pepper, violet florals, and subtle spice for complexity. Palate: concentrated with blackberry, black cherry and plum. Medium to full-bodied with vibrant fruit profile.",
-                flavors: ["blackberry", "cherry", "plum", "pepper", "violet", "floral", "spice", "earthy", "rich", "elegant"]
+                flavors: ["bold", "spicy", "peppery"]
             },
             {
                 name: "Vina Cobos Bramare",
@@ -696,23 +705,17 @@
                 region: "Argentina",
                 continent: "south",
                 details: "Deep ruby or purple in color. Aromas: blackberry, red fruit, cassis. Accented by tobacco, black pepper, clove/cinnamon, and floral spice. Palate: bold dark fruit core including blackberry, plum, boysenberry. Cocoa, dark chocolate, and minerals on secondary notes. Full-bodied and intense. Velvety tannins but a polished texture. Long and layered finish.",
-                flavors: ["blackberry", "cassis", "tobacco", "pepper", "clove", "cinnamon", "floral", "plum", "boysenberry", "cocoa", "chocolate", "minerals", "bold", "velvety", "full-bodied"]
+                flavors: ["bold", "full-bodied", "spicy"]
             },
+            
+            // Rich & Elegant
             {
-                name: "Vina Vik Milla Cala",
-                type: "Bordeaux Blend",
-                region: "Chile",
+                name: "El Enimigo",
+                type: "Malbec",
+                region: "Mendoza, Argentina",
                 continent: "south",
-                details: "Highlights both New World fruit intensity and Bordeaux-style structure. Aromas: blackberry, cherry, cassis. Violets, blue floral notes, herbs, and subtle eucalyptus spices. Vanilla, tobacco, and cedar oak influence from aging in French barrel. Palate: concentrated dark fruits carry the palate such as blackcurrant, plum, and blackberry. Secondary notes of dark chocolate, black pepper, clove, and mineral edges on the palate. Medium to full-bodied. Fine tannins.",
-                flavors: ["blackberry", "cherry", "cassis", "violets", "floral", "herbs", "eucalyptus", "vanilla", "tobacco", "cedar", "plum", "chocolate", "pepper", "clove", "minerals"]
-            },
-            {
-                name: "Gran Enimigo",
-                type: "Cabernet Franc",
-                region: "Argentina",
-                continent: "south",
-                details: "Primarily 85% Cabernet Franc, with a mix of Malbec. Aromas: concentrated dark fruits such as blackberry, plum, black cherry. Minerals and herbs hit the nose as well such as eucalyptus, thyme, and rosemary. Palate: vanilla, chocolate, spices, dark fruits. Full-bodied and structured. Elegance of old-world and balanced intensity.",
-                flavors: ["blackberry", "plum", "cherry", "minerals", "herbs", "eucalyptus", "thyme", "rosemary", "vanilla", "chocolate", "spices", "elegant", "balanced", "full-bodied"]
+                details: "Fermented with a small amount of Cabernet Franc. Rich concentrated and expressive that balances bold dark fruit, floral spice, and earthy tones. Firm but refined tannin with a long and elegant finish. Aromas: expressive blackberry, black cherry, plum, and dark berry. Hints of pepper, violet florals, and subtle spice for complexity. Palate: concentrated with blackberry, black cherry and plum. Medium to full-bodied with vibrant fruit profile.",
+                flavors: ["rich", "concentrated", "elegant"]
             },
             {
                 name: "Don Melchor",
@@ -720,20 +723,63 @@
                 region: "Chile",
                 continent: "south",
                 details: "Aromas: rich black cherry, blackberry, cassis, plum, dark chocolate, and espresso. Some spices of vanilla, cedar, and tobacco hit subtly. Full-bodied, rich and concentrated. Pairs great with red meats with a long and elegant finish. Lingering fruit and spice finish.",
-                flavors: ["cherry", "blackberry", "cassis", "plum", "chocolate", "espresso", "vanilla", "cedar", "tobacco", "rich", "elegant", "full-bodied"]
+                flavors: ["rich", "full-bodied", "concentrated"]
+            },
+            
+            // Complex & Structured
+            {
+                name: "Vina Vik Milla Cala",
+                type: "Bordeaux Blend",
+                region: "Chile",
+                continent: "south",
+                details: "Highlights both New World fruit intensity and Bordeaux-style structure. Aromas: blackberry, cherry, cassis. Violets, blue floral notes, herbs, and subtle eucalyptus spices. Vanilla, tobacco, and cedar oak influence from aging in French barrel. Palate: concentrated dark fruits carry the palate such as blackcurrant, plum, and blackberry. Secondary notes of dark chocolate, black pepper, clove, and mineral edges on the palate. Medium to full-bodied. Fine tannins.",
+                flavors: ["complex", "structured", "balanced"]
+            },
+            
+            // Herbal & Elegant
+            {
+                name: "Gran Enimigo",
+                type: "Cabernet Franc",
+                region: "Argentina",
+                continent: "south",
+                details: "Primarily 85% Cabernet Franc, with a mix of Malbec. Aromas: concentrated dark fruits such as blackberry, plum, black cherry. Minerals and herbs hit the nose as well such as eucalyptus, thyme, and rosemary. Palate: vanilla, chocolate, spices, dark fruits. Full-bodied and structured. Elegance of old-world and balanced intensity.",
+                flavors: ["herbal", "elegant", "structured"]
             }
         ];
 
         const flavorProfiles = [
-            { description: "Bold and fruit-forward with rich, intense dark fruit flavors (think blackberry, plum, cherry)", keywords: ["bold", "fruit-forward", "rich", "intense"] },
-            { description: "Elegant and silky with smooth, refined texture and polished tannins (think cherry, raspberry, tea)", keywords: ["elegant", "silky", "smooth", "refined", "polished"] },
-            { description: "Earthy and savory with herbal, mineral, and leather notes (think tobacco, herbs, earth)", keywords: ["earthy", "savory", "herbs", "minerals", "leather"] },
-            { description: "Spicy and complex with layers of pepper, clove, and warm spices (think black pepper, cinnamon, cardamom)", keywords: ["spice", "spicy", "complex", "pepper", "clove", "cinnamon"] },
-            { description: "Chocolatey and rich with dark cocoa, mocha, and espresso notes (think dark chocolate, coffee, cocoa)", keywords: ["chocolate", "cocoa", "mocha", "espresso", "coffee"] },
-            { description: "Velvety and plush with luxurious texture and soft, lush mouthfeel (think black currant, cassis, vanilla, silk)", keywords: ["velvety", "plush", "luxurious", "lush"] },
-            { description: "Full-bodied and structured with firm tannins and dense concentration (think black currant, plum, raspberry, fig, cedar)", keywords: ["full-bodied", "structured", "firm", "dense"] },
-            { description: "Floral and aromatic with violet, rose petal, and lavender notes (think violets, roses, florals)", keywords: ["floral", "violets", "rose", "lavender", "aromatic"] },
-            { description: "Dark fruit dominant with concentrated blackberry, black currant, and plum (think inky dark fruit, currant, blueberry, fig)", keywords: ["blackberry", "blackcurrant", "plum", "dark cherry", "currant", "blueberry", "fig", "raspberry"] }
+            { 
+                description: "Bold and fruit-forward with ripe, jammy dark fruit (think blackberry jam, cassis, rich plum)", 
+                keywords: ["bold", "fruit-forward", "opulent"] 
+            },
+            { 
+                description: "Elegant and refined with silky tannins and balanced structure (think cherry, tea, rose petal)", 
+                keywords: ["elegant", "silky", "refined", "polished", "approachable"] 
+            },
+            { 
+                description: "Earthy and savory with herbal complexity (think sage, thyme, forest floor, mushroom)", 
+                keywords: ["earthy", "savory", "herbal"] 
+            },
+            { 
+                description: "Spicy and peppery with warm spice notes (think black pepper, clove, cardamom)", 
+                keywords: ["spicy", "peppery"] 
+            },
+            { 
+                description: "Rich and luxurious with plush, velvety texture (think cassis, vanilla, silk, cream)", 
+                keywords: ["plush", "luxurious", "velvety", "lush", "rich"] 
+            },
+            { 
+                description: "Full-bodied and structured with firm, powerful tannins (think concentrated, dense, muscular)", 
+                keywords: ["full-bodied", "structured", "firm", "dense", "concentrated", "powerful"] 
+            },
+            { 
+                description: "Complex and layered with multiple flavor dimensions (think Bordeaux blend complexity)", 
+                keywords: ["complex", "layered"] 
+            },
+            { 
+                description: "Balanced and harmonious with integrated oak and acidity (think Napa sophistication)", 
+                keywords: ["balanced", "sophisticated", "harmonious"] 
+            }
         ];
 
         let wines = [...allWines];
