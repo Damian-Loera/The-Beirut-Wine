@@ -770,6 +770,7 @@
         function renderScoreboard() {
             const scoreboardList = document.getElementById('scoreboardList');
             const rankings = allProfiles
+                .filter(name => name !== 'Guest')
                 .map(name => ({ name, score: getProfileScore(name) }))
                 .sort((a, b) => b.score - a.score);
 
