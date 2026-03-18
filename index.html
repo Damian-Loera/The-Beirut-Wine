@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Money Team Wine Training</title>
+    <title>The Beirut Wine Training</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -215,7 +215,7 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>The Money Team Wine Training</h1>
+        <h1>🍷 Wine Training</h1>
         <div class="profile-section">
             <label for="profileSelect" style="color:#8b6f47;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;">Select Profile:</label>
             <select id="profileSelect" class="profile-select" onchange="changeProfile()">
@@ -373,7 +373,7 @@ let currentStreak = 0;
 let longestStreak = 0;
 
 const allProfiles = ['Guest','Jocelyn','TayTay','Jake','Em','Viny','Two Hummus Drew','Damian','Luke','Josh','Gracyn','Bailey','Lea'];
-const allCategories = ['All','By Glass','All Red','Red Wine','Captain\'s List','White Wine','Sparkling'];
+const allCategories = ['All','All Red','Red Wine','Captain\'s List','White Wine','Sparkling'];
 let activeCategory = 'All';
 
 // ─── KEYBOARD NAVIGATION ────────────────────────────────────────────────────
@@ -411,7 +411,6 @@ function initQuiz() {
     quizWines = pool.sort(() => Math.random() - 0.5).slice(0, 15);
     quizIndex = 0; quizScore = 0; answered = {}; showReview = false;
     currentStreak = 0; longestStreak = 0;
-    document.getElementById('quizTotal').textContent = quizWines.length;
     document.getElementById('quizMax').textContent = quizWines.length;
     updateQuizCounter();
     renderScoreboard();
@@ -619,8 +618,6 @@ function filterByCategory(category) {
     activeCategory = category;
     if (category === 'All') {
         filteredWines = winesData.filter(w => w.category !== 'By Glass');
-    } else if (category === 'By Glass') {
-        filteredWines = winesData.filter(w => w.category === 'By Glass');
     } else if (category === 'All Red') {
         filteredWines = winesData.filter(w => w.category === 'Red Wine' || w.category === "Captain's List");
     } else {
