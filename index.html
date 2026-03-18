@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Beirut Wine Training</title>
+    <title>The Money Team Wine Training</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -19,898 +15,676 @@
             padding: 20px;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        .container { max-width: 900px; margin: 0 auto; }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-top: 20px;
-        }
-
-        .header h1 {
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
+        .header { text-align: center; margin-bottom: 40px; padding-top: 20px; }
+        .header h1 { font-size: 32px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .header p { font-size: 14px; color: #d4af9a; font-weight: 500; }
 
         .profile-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 16px;
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; margin-bottom: 16px;
         }
-
         .profile-select {
             padding: 8px 12px;
-            background: rgba(139, 111, 71, 0.3);
+            background: rgba(139,111,71,0.3);
             border: 1px solid #8b6f47;
-            color: #d4af9a;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            color: #d4af9a; border-radius: 6px; font-size: 14px; cursor: pointer;
         }
-
-        .profile-select:hover {
-            background: rgba(139, 111, 71, 0.5);
-        }
-
-        .profile-select option {
-            background: #3d2f23;
-            color: #d4af9a;
-        }
-
-        .scoreboard {
-            background: linear-gradient(135deg, #4a3728 0%, #3d2f23 100%);
-            border: 2px solid #8b6f47;
-            border-radius: 12px;
-            padding: 24px;
-            margin-top: 40px;
-        }
-
-        .scoreboard-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #d4af9a;
-            margin-bottom: 16px;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-
-        .scoreboard-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .scoreboard-row {
-            display: grid;
-            grid-template-columns: 40px 1fr 80px;
-            gap: 16px;
-            padding: 12px;
-            background: rgba(139, 111, 71, 0.1);
-            border-radius: 8px;
-            align-items: center;
-        }
-
-        .scoreboard-rank {
-            font-weight: 600;
-            color: #d4af9a;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        .scoreboard-name {
-            color: #e8d5c4;
-            font-size: 14px;
-        }
-
-        .scoreboard-score {
-            color: #d4af9a;
-            font-weight: 600;
-            text-align: right;
-            font-size: 14px;
-        }
-
-        .header p {
-            font-size: 14px;
-            color: #d4af9a;
-            font-weight: 500;
-        }
+        .profile-select:hover { background: rgba(139,111,71,0.5); }
+        .profile-select option { background: #3d2f23; color: #d4af9a; }
 
         .mode-tabs {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-bottom: 24px;
-            border-bottom: 1px solid rgba(139, 111, 71, 0.3);
-            padding-bottom: 16px;
+            display: flex; gap: 12px; justify-content: center; margin-bottom: 24px;
+            border-bottom: 1px solid rgba(139,111,71,0.3); padding-bottom: 16px;
         }
-
         .mode-tab {
-            padding: 10px 20px;
-            background: transparent;
-            border: none;
-            color: #8b6f47;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s ease;
+            padding: 10px 20px; background: transparent; border: none;
+            color: #8b6f47; font-size: 14px; font-weight: 500; cursor: pointer;
+            border-bottom: 2px solid transparent; transition: all 0.2s;
         }
+        .mode-tab.active { color: #d4af9a; border-bottom-color: #d4af9a; }
+        .mode-tab:hover { color: #d4af9a; }
 
-        .mode-tab.active {
-            color: #d4af9a;
-            border-bottom-color: #d4af9a;
-        }
-
-        .mode-tab:hover {
-            color: #d4af9a;
-        }
-
-        .quiz-question {
-            background: linear-gradient(135deg, #4a3728 0%, #3d2f23 100%);
-            border: 2px solid #8b6f47;
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 32px;
-        }
-
-        .question-label {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            color: #d4af9a;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .question-text {
-            font-size: 16px;
-            color: #e8d5c4;
-            line-height: 1.8;
-            margin-bottom: 24px;
-            font-style: italic;
-        }
-
-        .options {
-            display: grid;
-            gap: 12px;
-        }
-
-        .option-btn {
-            padding: 16px;
-            background: rgba(139, 111, 71, 0.2);
-            border: 2px solid #8b6f47;
-            color: #d4af9a;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            text-align: left;
-            transition: all 0.2s ease;
-        }
-
-        .option-btn:hover:not(:disabled) {
-            background: rgba(139, 111, 71, 0.4);
-            border-color: #d4af9a;
-        }
-
-        .option-btn:disabled {
-            cursor: not-allowed;
-        }
-
-        .option-btn.correct {
-            background: rgba(76, 120, 80, 0.3);
-            border-color: #4c7850;
-            color: #7cb77f;
-        }
-
-        .option-btn.incorrect {
-            background: rgba(160, 70, 70, 0.3);
-            border-color: #a04646;
-            color: #d97070;
-        }
-
-        .quiz-feedback {
-            margin-top: 16px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        .quiz-feedback.correct {
-            background: rgba(76, 120, 80, 0.2);
-            color: #7cb77f;
-        }
-
-        .quiz-feedback.incorrect {
-            background: rgba(160, 70, 70, 0.2);
-            color: #d97070;
-        }
-
-        .quiz-score {
-            text-align: center;
-            font-size: 24px;
-            font-weight: 600;
-            color: #d4af9a;
-            margin-bottom: 32px;
-        }
-
-        .mode-content {
-            display: none;
-        }
-
-        .mode-content.active {
-            display: block;
-        }
-
-        .controls {
-            display: grid;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .filter-group {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
+        .controls { display: grid; gap: 16px; margin-bottom: 32px; }
+        .filter-group { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
         .filter-btn {
-            padding: 8px 16px;
-            border: 1px solid #8b6f47;
-            background: rgba(139, 111, 71, 0.2);
-            color: #d4af9a;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.2s ease;
+            padding: 8px 16px; border: 1px solid #8b6f47;
+            background: rgba(139,111,71,0.2); color: #d4af9a; border-radius: 6px;
+            cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s;
         }
-
-        .filter-btn:hover {
-            background: rgba(139, 111, 71, 0.4);
-            border-color: #d4af9a;
-        }
-
-        .filter-btn.active {
-            background: #8b6f47;
-            border-color: #d4af9a;
-            color: #fff;
-        }
+        .filter-btn:hover { background: rgba(139,111,71,0.4); border-color: #d4af9a; }
+        .filter-btn.active { background: #8b6f47; border-color: #d4af9a; color: #fff; }
 
         .progress-bar {
-            height: 3px;
-            background: rgba(212, 175, 154, 0.1);
-            border-radius: 2px;
-            overflow: hidden;
-            margin-bottom: 24px;
+            height: 3px; background: rgba(212,175,154,0.1);
+            border-radius: 2px; overflow: hidden; margin-bottom: 24px;
         }
-
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #d4af9a 0%, #c9956f 100%);
-            transition: width 0.3s ease;
+            transition: width 0.3s;
         }
 
-        .card-container {
-            perspective: 1000px;
-            margin-bottom: 32px;
+        .keyboard-hint {
+            text-align: center; font-size: 11px; color: #6b5040; margin-top: 8px;
+            letter-spacing: 0.5px;
+        }
+        .keyboard-hint kbd {
+            display: inline-block; padding: 2px 6px; background: rgba(139,111,71,0.2);
+            border: 1px solid #5a3e2b; border-radius: 3px; font-size: 10px;
+            color: #a07848; font-family: inherit; margin: 0 2px;
         }
 
+        /* Flashcard */
+        .card-container { perspective: 1000px; margin-bottom: 16px; }
         .card {
-            width: 100%;
-            height: 360px;
-            cursor: pointer;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.6s;
+            width: 100%; height: 360px; cursor: pointer; position: relative;
+            transform-style: preserve-3d; transition: transform 0.6s;
         }
-
-        .card.flipped {
-            transform: rotateY(180deg);
-        }
-
+        .card.flipped { transform: rotateY(180deg); }
         .card-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 40px;
-            border-radius: 12px;
+            position: absolute; width: 100%; height: 100%;
+            backface-visibility: hidden; display: flex; flex-direction: column;
+            justify-content: center; padding: 40px; border-radius: 12px;
             border: 2px solid #8b6f47;
         }
-
-        .card-front {
-            background: linear-gradient(135deg, #4a3728 0%, #3d2f23 100%);
-        }
-
+        .card-front { background: linear-gradient(135deg, #4a3728 0%, #3d2f23 100%); }
         .card-back {
             background: linear-gradient(135deg, #3d2f23 0%, #2c1810 100%);
             transform: rotateY(180deg);
         }
+        .card-category { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: #d4af9a; text-transform: uppercase; margin-bottom: 12px; opacity: 0.8; }
+        .card-title { font-size: 28px; font-weight: 600; margin-bottom: 8px; line-height: 1.2; }
+        .card-producer { font-size: 16px; color: #b89968; margin-bottom: 16px; font-weight: 500; }
+        .card-meta { display: flex; gap: 24px; margin-top: 24px; font-size: 13px; color: #b89968; }
+        .meta-item { display: flex; flex-direction: column; }
+        .meta-label { font-size: 11px; letter-spacing: 0.5px; color: #8b6f47; text-transform: uppercase; margin-bottom: 4px; }
+        .meta-value { font-weight: 600; color: #d4af9a; font-size: 14px; }
+        .card-section { margin-bottom: 16px; }
+        .section-label { font-size: 11px; letter-spacing: 1px; color: #8b6f47; text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
+        .section-content { font-size: 14px; color: #e8d5c4; line-height: 1.6; }
+        .card-hint { position: absolute; bottom: 16px; right: 16px; font-size: 11px; color: #8b6f47; font-style: italic; }
 
-        .card-category {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            color: #d4af9a;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            opacity: 0.8;
-        }
-
-        .card-title {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            line-height: 1.2;
-        }
-
-        .card-producer {
-            font-size: 16px;
-            color: #b89968;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-
-        .card-meta {
-            display: flex;
-            gap: 24px;
-            margin-top: 24px;
-            font-size: 13px;
-            color: #b89968;
-        }
-
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .meta-label {
-            font-size: 11px;
-            letter-spacing: 0.5px;
-            color: #8b6f47;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .meta-value {
-            font-weight: 600;
-            color: #d4af9a;
-            font-size: 14px;
-        }
-
-        .card-section {
-            margin-bottom: 16px;
-        }
-
-        .section-label {
-            font-size: 11px;
-            letter-spacing: 1px;
-            color: #8b6f47;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .section-content {
-            font-size: 14px;
-            color: #e8d5c4;
-            line-height: 1.6;
-        }
-
-        .card-hint {
-            position: absolute;
-            bottom: 16px;
-            right: 16px;
-            font-size: 11px;
-            color: #8b6f47;
-            font-style: italic;
-        }
-
+        /* Navigation */
         .navigation {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            align-items: center;
-            margin-top: 24px;
+            display: flex; gap: 12px; justify-content: center; align-items: center; margin-top: 24px;
         }
-
         .nav-btn {
-            padding: 10px 24px;
-            background: rgba(139, 111, 71, 0.3);
-            border: 1px solid #8b6f47;
-            color: #d4af9a;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.2s ease;
+            padding: 10px 24px; background: rgba(139,111,71,0.3); border: 1px solid #8b6f47;
+            color: #d4af9a; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500;
+            transition: all 0.2s;
         }
+        .nav-btn:hover:not(:disabled) { background: rgba(139,111,71,0.5); border-color: #d4af9a; }
+        .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .counter { padding: 10px 24px; color: #b89968; font-size: 14px; font-weight: 500; min-width: 100px; text-align: center; }
 
-        .nav-btn:hover:not(:disabled) {
-            background: rgba(139, 111, 71, 0.5);
-            border-color: #d4af9a;
-        }
+        /* Mode content */
+        .mode-content { display: none; }
+        .mode-content.active { display: block; }
 
-        .nav-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        /* Quiz */
+        .quiz-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 24px;
         }
+        .quiz-score-display {
+            font-size: 22px; font-weight: 600; color: #d4af9a;
+        }
+        .quiz-progress-label {
+            font-size: 14px; color: #b89968; font-weight: 500;
+        }
+        .quiz-restart-btn {
+            padding: 8px 16px; background: rgba(139,111,71,0.2);
+            border: 1px solid #8b6f47; color: #d4af9a; border-radius: 6px;
+            cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s;
+        }
+        .quiz-restart-btn:hover { background: rgba(139,111,71,0.4); border-color: #d4af9a; }
 
-        .counter {
-            padding: 10px 24px;
-            color: #b89968;
-            font-size: 14px;
-            font-weight: 500;
-            min-width: 100px;
-            text-align: center;
+        .quiz-question {
+            background: linear-gradient(135deg, #4a3728 0%, #3d2f23 100%);
+            border: 2px solid #8b6f47; border-radius: 12px; padding: 40px; margin-bottom: 32px;
         }
+        .question-label { font-size: 11px; letter-spacing: 1.5px; color: #d4af9a; text-transform: uppercase; margin-bottom: 12px; }
+        .question-text { font-size: 16px; color: #e8d5c4; line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+        .options { display: grid; gap: 12px; }
+        .option-btn {
+            padding: 16px; background: rgba(139,111,71,0.2); border: 2px solid #8b6f47;
+            color: #d4af9a; border-radius: 8px; cursor: pointer; font-size: 14px;
+            font-weight: 500; text-align: left; transition: all 0.2s;
+        }
+        .option-btn:hover:not(:disabled) { background: rgba(139,111,71,0.4); border-color: #d4af9a; }
+        .option-btn:disabled { cursor: not-allowed; }
+        .option-btn.correct { background: rgba(76,120,80,0.3); border-color: #4c7850; color: #7cb77f; }
+        .option-btn.incorrect { background: rgba(160,70,70,0.3); border-color: #a04646; color: #d97070; }
+        .quiz-feedback {
+            margin-top: 16px; padding: 12px 16px; border-radius: 8px;
+            font-size: 14px; text-align: center;
+        }
+        .quiz-feedback.correct { background: rgba(76,120,80,0.2); color: #7cb77f; }
+        .quiz-feedback.incorrect { background: rgba(160,70,70,0.2); color: #d97070; }
 
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #8b6f47;
+        /* Quiz completion */
+        .quiz-complete {
+            background: linear-gradient(135deg, #4a3728 0%, #3d2f23 100%);
+            border: 2px solid #8b6f47; border-radius: 12px; padding: 40px;
+            text-align: center; margin-bottom: 32px;
         }
+        .quiz-complete-title { font-size: 28px; font-weight: 600; color: #d4af9a; margin-bottom: 8px; }
+        .quiz-complete-score { font-size: 56px; font-weight: 700; color: #d4af9a; margin: 20px 0 8px; }
+        .quiz-complete-label { font-size: 14px; color: #b89968; margin-bottom: 28px; }
+        .quiz-complete-grade { font-size: 20px; font-weight: 600; margin-bottom: 32px; }
+        .review-toggle {
+            padding: 10px 20px; background: rgba(139,111,71,0.2); border: 1px solid #8b6f47;
+            color: #d4af9a; border-radius: 6px; cursor: pointer; font-size: 14px;
+            transition: all 0.2s; margin-right: 12px;
+        }
+        .review-toggle:hover { background: rgba(139,111,71,0.4); }
+        .review-list { margin-top: 28px; text-align: left; }
+        .review-item {
+            display: flex; align-items: flex-start; gap: 12px; padding: 12px;
+            border-radius: 8px; margin-bottom: 8px; font-size: 13px;
+            background: rgba(139,111,71,0.08);
+        }
+        .review-item.correct-item { border-left: 3px solid #4c7850; }
+        .review-item.incorrect-item { border-left: 3px solid #a04646; }
+        .review-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+        .review-wine { color: #e8d5c4; font-weight: 600; margin-bottom: 3px; }
+        .review-answer { color: #8b6f47; font-size: 12px; }
+        .review-answer.wrong { color: #d97070; }
 
-        .empty-state p {
-            font-size: 16px;
+        /* Scoreboard */
+        .scoreboard {
+            background: linear-gradient(135deg, #4a3728 0%, #3d2f23 100%);
+            border: 2px solid #8b6f47; border-radius: 12px; padding: 24px; margin-top: 40px;
         }
+        .scoreboard-title { font-size: 16px; font-weight: 600; color: #d4af9a; margin-bottom: 16px; text-align: center; letter-spacing: 1px; }
+        .scoreboard-list { display: flex; flex-direction: column; gap: 8px; }
+        .scoreboard-row {
+            display: grid; grid-template-columns: 40px 1fr 80px; gap: 16px;
+            padding: 12px; background: rgba(139,111,71,0.1); border-radius: 8px; align-items: center;
+        }
+        .scoreboard-rank { font-weight: 600; color: #d4af9a; font-size: 14px; text-align: center; }
+        .scoreboard-name { color: #e8d5c4; font-size: 14px; }
+        .scoreboard-score { color: #d4af9a; font-weight: 600; text-align: right; font-size: 14px; }
+
+        .empty-state { text-align: center; padding: 60px 20px; color: #8b6f47; }
+        .empty-state p { font-size: 16px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🍷 Wine Training</h1>
-            <div class="profile-section">
-                <label for="profileSelect" style="color: #8b6f47; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Select Profile:</label>
-                <select id="profileSelect" class="profile-select" onchange="changeProfile()">
-                    <option value="Guest">Guest</option>
-                    <option value="Jocelyn">Jocelyn</option>
-                    <option value="TayTay">TayTay</option>
-                    <option value="Jake">Jake</option>
-                    <option value="Em">Em</option>
-                    <option value="Viny">Viny</option>
-                    <option value="Two Hummus Drew">Two Hummus Drew</option>
-                    <option value="Damian">Damian</option>
-                    <option value="Luke">Luke</option>
-                    <option value="Josh">Josh</option>
-                    <option value="Gracyn">Gracyn</option>
-                    <option value="Bailey">Bailey</option>
-                    <option value="Lea">Lea</option>
-                </select>
-            </div>
-            <p>The Beirut Server Training Program</p>
+<div class="container">
+    <div class="header">
+        <h1>The Money Team Wine Training</h1>
+        <div class="profile-section">
+            <label for="profileSelect" style="color:#8b6f47;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;">Select Profile:</label>
+            <select id="profileSelect" class="profile-select" onchange="changeProfile()">
+                <option value="Guest">Guest</option>
+                <option value="Jocelyn">Jocelyn</option>
+                <option value="TayTay">TayTay</option>
+                <option value="Jake">Jake</option>
+                <option value="Em">Em</option>
+                <option value="Viny">Viny</option>
+                <option value="Two Hummus Drew">Two Hummus Drew</option>
+                <option value="Damian">Damian</option>
+                <option value="Luke">Luke</option>
+                <option value="Josh">Josh</option>
+                <option value="Gracyn">Gracyn</option>
+                <option value="Bailey">Bailey</option>
+                <option value="Lea">Lea</option>
+            </select>
         </div>
+        <p>The Beirut Server Training Program</p>
+    </div>
 
-        <div class="mode-tabs">
-            <button class="mode-tab active" onclick="switchMode('flashcard')">Flashcards</button>
-            <button class="mode-tab" onclick="switchMode('quiz')">Quiz</button>
-        </div>
+    <div class="mode-tabs">
+        <button class="mode-tab active" onclick="switchMode('flashcard')">Flashcards</button>
+        <button class="mode-tab" onclick="switchMode('quiz')">Quiz</button>
+    </div>
 
-        <div class="controls">
-            <div class="filter-group" id="filterGroup"></div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-        </div>
-
-        <div id="flashcardMode" class="mode-content active">
-            <div id="cardArea"></div>
-
-            <div class="navigation">
-                <button class="nav-btn" id="prevBtn" onclick="previousCard()">← Previous</button>
-                <div class="counter">
-                    <span id="currentCard">1</span> / <span id="totalCards">74</span>
-                </div>
-                <button class="nav-btn" id="nextBtn" onclick="nextCard()">Next →</button>
-            </div>
-        </div>
-
-        <div id="quizMode" class="mode-content">
-            <div class="quiz-score">
-                Score: <span id="quizScore">0</span> / 15
-            </div>
-            <div id="quizArea"></div>
-
-            <div class="navigation">
-                <button class="nav-btn" id="quizPrevBtn" onclick="previousQuiz()">← Previous</button>
-                <button class="nav-btn" id="quizNextBtn" onclick="nextQuiz()">Next →</button>
-            </div>
-
-            <div class="scoreboard">
-                <div class="scoreboard-title">Leaderboard</div>
-                <div class="scoreboard-list" id="scoreboardList"></div>
-            </div>
+    <div class="controls">
+        <div class="filter-group" id="filterGroup"></div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
         </div>
     </div>
 
-    <script>
-        const winesData = [
-            {"id":0,"name":"Lunetta Prosecco","producer":"Lunetta","country":"Italy","category":"By Glass","grape":"Glera","price":9.0,"body":"","acidity":"","tasting_notes":"","food_pairings":"","story":""},
-            {"id":1,"name":"Barone Fini Pinot Grigio","producer":"Barone Fini","country":"Italy","category":"By Glass","grape":"Pinot Grigio","price":13.0,"body":"Light","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":2,"name":"Tenuta Regaliali Cavallo delle Fate","producer":"Tenuta Regaliali","country":"Italy","category":"By Glass","grape":"Grillo","price":15.0,"body":"Light","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":3,"name":"Dashwood Sauvignon Blanc","producer":"Dashwood","country":"New Zealand","category":"By Glass","grape":"Sauvignon Blanc","price":12.0,"body":"Light","acidity":"High","tasting_notes":"","food_pairings":"","story":""},
-            {"id":4,"name":"Ampelidae Sauvignon Blanc","producer":"Ampelidae","country":"France","category":"By Glass","grape":"Sauvignon Blanc","price":13.0,"body":"Light","acidity":"High","tasting_notes":"","food_pairings":"","story":""},
-            {"id":5,"name":"La Crema Chardonnay","producer":"La Crema","country":"California","category":"By Glass","grape":"Chardonnay","price":13.0,"body":"Medium","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":6,"name":"St. Michael Weinkeller Riesling","producer":"St. Michael Weinkeller","country":"Germany","category":"By Glass","grape":"Riesling","price":11.0,"body":"Light","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":7,"name":"Masaya Blanc","producer":"Masaya","country":"Lebanon","category":"By Glass","grape":"White Blend","price":16.0,"body":"Light","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":8,"name":"Masaya Rose","producer":"Masaya","country":"Lebanon","category":"By Glass","grape":"Cinsault","price":16.0,"body":"Light","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":9,"name":"Stella Rosa Moscato","producer":"Stella Rosa","country":"Italy","category":"By Glass","grape":"Moscato","price":12.0,"body":"Light","acidity":"Low","tasting_notes":"","food_pairings":"","story":""},
-            {"id":10,"name":"Bishops Peak Pinot Noir","producer":"Bishops Peak","country":"California","category":"By Glass","grape":"Pinot Noir","price":13.0,"body":"Medium","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":11,"name":"Domaine des Tourelles","producer":"Domaine des Tourelles","country":"Lebanon","category":"By Glass","grape":"Red Blend","price":14.0,"body":"Medium","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":12,"name":"Tommasso Cabernet Sauvignon","producer":"Tommasso","country":"California","category":"By Glass","grape":"Cabernet Sauvignon","price":15.0,"body":"Full","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":13,"name":"Tapestry Red Blend by BV","producer":"Tapestry","country":"California","category":"By Glass","grape":"Red Blend","price":13.0,"body":"Full","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":14,"name":"Septima Reserva Malbec","producer":"Septima Reserva","country":"Argentina","category":"By Glass","grape":"Malbec","price":14.0,"body":"Full","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":15,"name":"La Rioja Alta Vina Alberdi","producer":"La Rioja Alta","country":"Spain","category":"By Glass","grape":"Tempranillo","price":17.0,"body":"Medium","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":16,"name":"Marchesi Antinori Sangiovese","producer":"Marchesi Antinori","country":"Italy","category":"By Glass","grape":"Sangiovese","price":16.0,"body":"Medium","acidity":"High","tasting_notes":"","food_pairings":"","story":""},
-            {"id":17,"name":"Le Colombier","producer":"Le Colombier","country":"Lebanon","category":"By Glass","grape":"Red Blend","price":16.0,"body":"Medium","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":18,"name":"Roscato Rosso","producer":"Roscato","country":"Italy","category":"By Glass","grape":"Blend","price":12.0,"body":"Light","acidity":"Medium","tasting_notes":"","food_pairings":"","story":""},
-            {"id":19,"name":"Gramona Gessamí *organic*","producer":"Gramona","country":"Spain","category":"White Wine","grape":"White Blend","price":65.0,"body":"Medium","acidity":"Medium","tasting_notes":"Soft nose and smooth. Tree fruit like peach, pear, apple along with some citrus like lemon and lime. Low floral notes of jasmine and honeysuckle.","food_pairings":"","story":""},
-            {"id":20,"name":"La Spinetta Vermentino","producer":"La Spinetta","country":"Italy","category":"White Wine","grape":"Vermentino","price":70.0,"body":"Medium","acidity":"High","tasting_notes":"Refreshing citrus taste, high quality acidity, earthy notes of honey and stone","food_pairings":"","story":""},
-            {"id":21,"name":"Illumination Sauvignon Blanc","producer":"Illumination","country":"California","category":"White Wine","grape":"Sauvignon Blanc","price":75.0,"body":"Medium","acidity":"High","tasting_notes":"lemon zest, honeysuckle, peach blossom, all elevated by lovely acidity","food_pairings":"","story":""},
-            {"id":22,"name":"Domaine Melanie Pfister Alsace Blend","producer":"Domaine Melanie Pfister","country":"France","category":"White Wine","grape":"Alsace Blend","price":75.0,"body":"Medium","acidity":"Medium","tasting_notes":"Orange blossom and honey on first notes, citrus scents, acidity of apricot and pear","food_pairings":"","story":""},
-            {"id":23,"name":"Stag's Leap Karta Chardonnay","producer":"Stag's Leap","country":"California","category":"White Wine","grape":"Chardonnay","price":80.0,"body":"Medium","acidity":"Medium","tasting_notes":"Bold wine consisting of oaky notes. Velvety and creamy, moe vibrant fruit notes than butter","food_pairings":"","story":""},
-            {"id":24,"name":"Maison Nicolas Les Champs Clos","producer":"Maison Nicolas","country":"France","category":"White Wine","grape":"Sauvignon Blanc","price":80.0,"body":"Light","acidity":"High","tasting_notes":"Vibrant and flavorful. Crisp with citrus notes","food_pairings":"","story":""},
-            {"id":25,"name":"Wolf & Woman Chenin Blanc","producer":"Wolf & Woman","country":"South Africa","category":"White Wine","grape":"Chenin Blanc","price":85.0,"body":"Medium","acidity":"Medium","tasting_notes":"Nose is floral and vibrant with lime zest, citrus blossom, and a touch of stone fruit. On palate its textural, citrusy, and has a mineral finish","food_pairings":"","story":""},
-            {"id":26,"name":"Ramey Chardonnay","producer":"Ramey","country":"California","category":"White Wine","grape":"Chardonnay","price":90.0,"body":"Medium","acidity":"Medium","tasting_notes":"Lends notes of apricot, lemon and slate that mellows out to toasted baking spices with buttery oak finish","food_pairings":"","story":""},
-            {"id":27,"name":"Rombauer Chardonnay","producer":"Rombauer","country":"California","category":"White Wine","grape":"Chardonnay","price":100.0,"body":"Full","acidity":"Low","tasting_notes":"Great balance of fruit and butter with a oaky finish that leaves a nice lingering feeling on palate","food_pairings":"","story":""},
-            {"id":28,"name":"Oliver Leflaive Fernand Vergelesses","producer":"Oliver Leflaive","country":"France","category":"White Wine","grape":"Chardonnay","price":125.0,"body":"Medium","acidity":"Medium","tasting_notes":"Aromas of hawthron, acacia that advertise with time amber and honey, spices. Bright mouth","food_pairings":"","story":""},
-            {"id":29,"name":"Darioush Viognier","producer":"Darioush","country":"California","category":"White Wine","grape":"Viognier","price":135.0,"body":"Medium","acidity":"Low","tasting_notes":"Notable crisp green apple acidity pleases the palate while flavors of pear and white nectorine harmonize with a nuanced finish accented by orange zest","food_pairings":"","story":""},
-            {"id":30,"name":"Domaine Belargus Chenin Blanc","producer":"Domaine Belargus","country":"France","category":"White Wine","grape":"Chenin Blanc","price":200.0,"body":"Medium","acidity":"High","tasting_notes":"Intense aromatic nose with apricot, honey dried fig. On palate fine blanced with ripe sweet fruits","food_pairings":"","story":""},
-            {"id":31,"name":"Isxir Altitudes Red Blend","producer":"Isxir","country":"Lebanon","category":"Red Wine","grape":"Red Blend","price":55.0,"body":"Full","acidity":"Medium","tasting_notes":"Fresh aromas of red and black fruits, touch of oak. On palate is blackcurrant and blackberry merge","food_pairings":"","story":""},
-            {"id":32,"name":"Saint Hills Black Dalmatian Zinfandel","producer":"Saint Hills","country":"Croatia","category":"Red Wine","grape":"Zinfandel","price":60.0,"body":"Full","acidity":"Medium","tasting_notes":"On nose is leather, plum, slightly oxidised. Palate consists of great fruit balance. Low tannins","food_pairings":"","story":""},
-            {"id":33,"name":"El Enemigo Malbec","producer":"El Enemigo","country":"Argentina","category":"Red Wine","grape":"Malbec","price":65.0,"body":"Full","acidity":"Medium","tasting_notes":"Ripe blackberry, dark plum. Smooth tannins. Velevety. Finishs with savory spice and whisper of toasted oak. Great with lamb chops and steak","food_pairings":"","story":""},
-            {"id":34,"name":"Chateau Musar Juene","producer":"Chateau Musar","country":"Lebanon","category":"Red Wine","grape":"Red Blend","price":70.0,"body":"Medium","acidity":"Medium","tasting_notes":"Freshy cherry and berry flavors. Spice and red licorice fill the finish","food_pairings":"","story":""},
-            {"id":35,"name":"Bravium Pinot Noir","producer":"Bravium","country":"California","category":"Red Wine","grape":"Pinot Noir","price":70.0,"body":"Medium","acidity":"High","tasting_notes":"Medium tannins, light acid, mild nose of strawberry and raspberry. Slightly bitter finish. Mostly you get strawberry, oak, and mineral","food_pairings":"","story":""},
-            {"id":36,"name":"Ornelia Le Volte Tuscan Blend","producer":"Ornelia","country":"Italy","category":"Red Wine","grape":"Tuscan Blend","price":75.0,"body":"Medium","acidity":"High","tasting_notes":"Nose has lively fruit notes of red fruits and rose petals. On palate its full, dense tannic texture and vibrant acidity.","food_pairings":"","story":""},
-            {"id":37,"name":"Clark & Telephone Pinot Noir","producer":"Clark & Telephone","country":"California","category":"Red Wine","grape":"Pinot Noir","price":75.0,"body":"Medium","acidity":"High","tasting_notes":"Dry red wine, velevety tannins, deep oaky notes of chocolate and tobacco perfectly balanced with cherry and blackberry","food_pairings":"","story":""},
-            {"id":38,"name":"Domaine de Chateaumar Grenache/Syrah","producer":"Domaine de Chateaumar","country":"France","category":"Red Wine","grape":"Grenache/Syrah","price":80.0,"body":"Full","acidity":"Medium","tasting_notes":"Powerful scents of cherry-vanilla, cassis. Plump red and dark berry flavors, hint of bitter chocolate. Fine grained tannins","food_pairings":"","story":""},
-            {"id":39,"name":"Austin Hope Cabernet Sauvignon","producer":"Austin Hope","country":"California","category":"Red Wine","grape":"Cabernet Sauvignon","price":90.0,"body":"Full","acidity":"Medium","tasting_notes":"Ripe dark fruit notes like blackberry and plum, complimented by cassis, mocha, subtle spice. On palate you get a full bodied experience with velvety tannins, satisying finish","food_pairings":"","story":""},
-            {"id":40,"name":"Duckhorn Cabernet Sauvignon","producer":"Duckhorn","country":"California","category":"Red Wine","grape":"Cabernet Sauvignon","price":100.0,"body":"Full","acidity":"Medium","tasting_notes":"Mouth filling wine with ripe, integrated tannins. Aromas of toffee and hickory. On palate you get rich black currant and blueberry. Underscored by subtle notes of earth and oak","food_pairings":"","story":""},
-            {"id":41,"name":"Malleolus Tempranillo","producer":"Vina Volk","country":"Spain","category":"Red Wine","grape":"Tempranillo","price":100.0,"body":"Full","acidity":"Medium","tasting_notes":"Nose of intense black fruit, Palate is powerful, velvety and excellent integration between fruit and wood","food_pairings":"","story":""},
-            {"id":42,"name":"Vina Vik Bordeaux Blend","producer":"Vina Vik","country":"Chile","category":"Red Wine","grape":"Bordeaux Blend","price":100.0,"body":"Full","acidity":"Medium","tasting_notes":"Aromas of strawberry, raspberry, and vanilla. On palate has thin silky fresh attack, elegant tannins","food_pairings":"","story":""},
-            {"id":43,"name":"Willful Wine Curvé Pinot Noir","producer":"Willful Wine","country":"Oregon","category":"Red Wine","grape":"Pinot Noir","price":110.0,"body":"Medium","acidity":"High","tasting_notes":"Elegant, complex, balanced. Lovely spice and cherry aromatics, plum, darky berry, and earthy notes.","food_pairings":"","story":""},
-            {"id":44,"name":"Tenuta Regaliali Rosso Del Conte","producer":"Tenuta Regaliali","country":"Italy","category":"Red Wine","grape":"Red Blend","price":110.0,"body":"Medium","acidity":"Medium","tasting_notes":"Enticing aromas of marasca cherries and herbs with undertones of vanilla and tobacco. On palate, you get silky tannins, rich body, long flavorful finish.","food_pairings":"","story":""},
-            {"id":45,"name":"Quilt Reserve Cabernet Sauvignon","producer":"Quilt Reserve","country":"California","category":"Red Wine","grape":"Cabernet Sauvignon","price":115.0,"body":"Full","acidity":"Medium","tasting_notes":"Smooth and silky, well balanced, tastes of vanilla and chocolate along with some blackerry","food_pairings":"","story":""},
-            {"id":46,"name":"Frank Family Cabernet Sauvignon","producer":"Frank Family","country":"California","category":"Red Wine","grape":"Cabernet Sauvignon","price":115.0,"body":"Full","acidity":"Medium","tasting_notes":"bursts with aromas of cocoa power mingled with blackberries and vanilla. On palate bursts with juicy cherries and roasted figs","food_pairings":"","story":""},
-            {"id":47,"name":"Acinum Prosecco","producer":"Acinum","country":"Italy","category":"Sparkling","grape":"Glera","price":45.0,"body":"Light","acidity":"Medium","tasting_notes":"Crisp acidity, low sugar, plenty of fruit and character. Great option for a sparkling wine that isnt champagne","food_pairings":"","story":""},
-            {"id":48,"name":"Le Grand Courtage Grande Cuvée Rose","producer":"Le Grand Courtage","country":"France","category":"Sparkling","grape":"Rose","price":50.0,"body":"Light","acidity":"Medium","tasting_notes":"Deliciously seductive. Smooth, perfect balance of freshness, fruit, acidity and sweetness.","food_pairings":"","story":""},
-            {"id":49,"name":"Lanson Pere & Fils Brut","producer":"Lanson","country":"France","category":"Sparkling","grape":"Champagne Blend","price":80.0,"body":"Light","acidity":"High","tasting_notes":"Lemon on the nose. Apple and vanilla on finish. Light and acidic","food_pairings":"","story":""},
-            {"id":50,"name":"Laurent Perrier La Cuvée Brut","producer":"Laurent Perrier","country":"France","category":"Sparkling","grape":"Champagne Blend","price":130.0,"body":"Light","acidity":"High","tasting_notes":"Citrus, lemons, apples, light earth and minerals. Long finish of lime and grapefruits. Well balanced. Not bitter nor tart","food_pairings":"","story":""},
-            {"id":51,"name":"Veuve Clicquot Brut","producer":"Veuve Clicquot","country":"France","category":"Sparkling","grape":"Champagne Blend","price":145.0,"body":"Light","acidity":"High","tasting_notes":"Quick tanginess on the tip of tongue initially, then a slow finish. Lemon acidity.","food_pairings":"","story":""},
-            {"id":52,"name":"Bollinger AYC Brut","producer":"Bollinger","country":"France","category":"Sparkling","grape":"Champagne Blend","price":240.0,"body":"Light","acidity":"High","tasting_notes":"Flavor of pear with aromas of lemon, lime, and fresh cut grass","food_pairings":"","story":""},
-            {"id":53,"name":"Dom Perignon","producer":"Dom Perignon","country":"France","category":"Sparkling","grape":"Champagne Blend","price":550.0,"body":"Light","acidity":"High","tasting_notes":"Floral, fruity pastel tone then unfolds and quickly darkens into candied fruit, ripe hay, and toasted notes. Hints of licorice","food_pairings":"","story":""},
-            {"id":54,"name":"San Polo Brunello di Montalcino","producer":"San Polo","country":"Italy","category":"Captain's List","grape":"Brunello","price":120.0,"body":"Full","acidity":"Medium","tasting_notes":"Aromas of violets and small red berries. Light note of vanilla and aromatic wood. On palate is leather and citrus pith bitters","food_pairings":"","story":""},
-            {"id":55,"name":"El Isxir Red Blend","producer":"El Isxir","country":"Lebanon","category":"Captain's List","grape":"Red Blend","price":120.0,"body":"Full","acidity":"Medium","tasting_notes":"Aromas of red fruits. The palate has a nice mineral tension and great limestone terroirs. Finish gives an extended length and reveals greating aging aptitude","food_pairings":"","story":""},
-            {"id":56,"name":"Caymus Cabernet Sauvignon","producer":"Caymus","country":"California","category":"Captain's List","grape":"Cabernet Sauvignon","price":135.0,"body":"Full","acidity":"Medium","tasting_notes":"Vibrant, oaky, and earthy Napa Cab. Subtle black fruit undertones. Bold and velvety.","food_pairings":"","story":""},
-            {"id":57,"name":"Artemis Stags Leap Cabernet Sauvignon","producer":"Artemis Stags Leap","country":"California","category":"Captain's List","grape":"Cabernet Sauvignon","price":135.0,"body":"Full","acidity":"Medium","tasting_notes":"Oak, vanilla, chocolate with a hint of spice to the nose. Smooth, bold, hints of dark fruits","food_pairings":"","story":""},
-            {"id":58,"name":"R. Lopez de Heredia Vina Tondonia Reserva","producer":"R. Lopez de Heredia","country":"Spain","category":"Captain's List","grape":"Tempranillo","price":140.0,"body":"Medium","acidity":"Medium","tasting_notes":"Light fresh texture with notes of vanilla and dried berry aromas, Ruch, very dry, smooth and developed.","food_pairings":"","story":""},
-            {"id":59,"name":"Papillon Orin Swift Bordeaux Blend","producer":"Papillon Orin Swift","country":"California","category":"Captain's List","grape":"Bordeaux Blend","price":145.0,"body":"Full","acidity":"Medium","tasting_notes":"Lively perfume of crushed boysenberry, spring flowers, hint of toast. Flavors of ripe plum, mocha and dark chocolate.Polished tannins present on finish.","food_pairings":"","story":""},
-            {"id":60,"name":"Ca 'Rome' Barolo Rapet","producer":"Ca 'Rome'","country":"Italy","category":"Captain's List","grape":"Nebbiolo","price":165.0,"body":"Full","acidity":"High","tasting_notes":"Full bodied, perfectly balanced components, fruit, tannins, and acididty. Pleasant finish","food_pairings":"","story":""},
-            {"id":61,"name":"Chateau de Pommard Clos Marey-Monge","producer":"Chateau de Pommard","country":"France","category":"Captain's List","grape":"Pinot Noir","price":175.0,"body":"Medium","acidity":"High","tasting_notes":"Boldly elegant pinot noir with notes of red fruit, mushroom, leather and oak, slightly tannic aftertaste.","food_pairings":"","story":""},
-            {"id":62,"name":"Silver Oak Cabernet Sauvignon","producer":"Silver Oak","country":"California","category":"Captain's List","grape":"Cabernet Sauvignon","price":175.0,"body":"Full","acidity":"Medium","tasting_notes":"Excellent dark fruit, cherry, earth and cedar flavors. Soft and velevety","food_pairings":"","story":""},
-            {"id":63,"name":"Alion Tempranillo","producer":"Alion","country":"Spain","category":"Captain's List","grape":"Tempranillo","price":190.0,"body":"Full","acidity":"Medium","tasting_notes":"Black plum, cassis, oak, dark chocolate","food_pairings":"","story":""},
-            {"id":64,"name":"Barbaresco Valeirano La Spinetta","producer":"Barbaresco Valeirano","country":"Italy","category":"Captain's List","grape":"Nebbiolo","price":200.0,"body":"Full","acidity":"High","tasting_notes":"Powerful nose of red fruit. Velevety taste of blackcurrant, leather, tobacco and mushroom. Great with lamb","food_pairings":"","story":""},
-            {"id":65,"name":"Don Melchor Cabernet Sauvignon","producer":"Don Melchor","country":"Chile","category":"Captain's List","grape":"Cabernet Sauvignon","price":225.0,"body":"Full","acidity":"Medium","tasting_notes":"Dry full bodied complex aroma wine. Touch of leather, oakyness, vanilla, licorice and dark chocolate. Long tasting floral aroma","food_pairings":"","story":""},
-            {"id":66,"name":"Bertani Amarone Della Valpolicella Classico","producer":"Bertani","country":"Italy","category":"Captain's List","grape":"Amarone","price":240.0,"body":"Full","acidity":"Low","tasting_notes":"Ripe, bold, dry. Greets palate with a strong burst of tannins. Mellows into a deep plum with hints of vanilla","food_pairings":"","story":""},
-            {"id":67,"name":"Antinori Tignanello Super Tuscan","producer":"Antinori","country":"Italy","category":"Captain's List","grape":"Super Tuscan","price":260.0,"body":"Full","acidity":"Medium","tasting_notes":"Ripe fruit, including plums, blackberries and cherries. Notes of chocolate, coffee, and floral hints","food_pairings":"","story":""},
-            {"id":68,"name":"Chateau Musar Hochar 2018","producer":"Chateau Musar","country":"Lebanon","category":"Captain's List","grape":"Red Blend","price":180.0,"body":"Full","acidity":"Medium","tasting_notes":"Nose of cigar box, warm leather, baked fruits. Palates give intense flavours of red cherries, dark chocolate, olives, figs and velvet smooth tannins","food_pairings":"","story":""},
-            {"id":69,"name":"Chateau Musar Hochar 2012","producer":"Chateau Musar","country":"Lebanon","category":"Captain's List","grape":"Red Blend","price":220.0,"body":"Full","acidity":"Medium","tasting_notes":"Nose of cigar box, warm leather, baked fruits. Palates give intense flavours of red cherries, dark chocolate, olives, figs and velvet smooth tannins","food_pairings":"","story":""},
-            {"id":70,"name":"Chateau Musar Hochar 2002","producer":"Chateau Musar","country":"Lebanon","category":"Captain's List","grape":"Red Blend","price":300.0,"body":"Full","acidity":"Medium","tasting_notes":"Nose of cigar box, warm leather, baked fruits. Palates give intense flavours of red cherries, dark chocolate, olives, figs and velvet smooth tannins","food_pairings":"","story":""},
-            {"id":71,"name":"Caymus Special Selection Cabernet","producer":"Caymus","country":"California","category":"Captain's List","grape":"Cabernet Sauvignon","price":350.0,"body":"Full","acidity":"Medium","tasting_notes":"Black fruit and vnilla. Finish with a hint of red currant. Dry, nice acidity, and tannins.","food_pairings":"","story":""},
-            {"id":72,"name":"Quintessa Cabernet Sauvignon","producer":"Quintessa","country":"California","category":"Captain's List","grape":"Cabernet Sauvignon","price":400.0,"body":"Full","acidity":"Medium","tasting_notes":"Aromas of fresh cherry and blackberry layered with notes of violets, graphite, and hints of cedar spice","food_pairings":"","story":""},
-            {"id":73,"name":"Opus One Red Blend","producer":"Opus One","country":"California","category":"Captain's List","grape":"Red Blend","price":675.0,"body":"Full","acidity":"Medium","tasting_notes":"Aromas of blackberry, rose petals, chocolate, and espresso accentuate fruity and earthy nuances. Round velvety tannins enrobe a silky texture with a touch of mineralitty. The flavours of dark fruit are enhanced by the acidity.","food_pairings":"","story":""}
-        ];
+    <!-- FLASHCARD MODE -->
+    <div id="flashcardMode" class="mode-content active">
+        <div id="cardArea"></div>
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="previousCard()">← Previous</button>
+            <div class="counter"><span id="currentCard">1</span> / <span id="totalCards">1</span></div>
+            <button class="nav-btn" id="nextBtn" onclick="nextCard()">Next →</button>
+        </div>
+        <div class="keyboard-hint">
+            <kbd>←</kbd><kbd>→</kbd> navigate &nbsp;·&nbsp; <kbd>Space</kbd> flip card
+        </div>
+    </div>
 
-        let currentIndex = 0;
-        let filteredWines = winesData.filter(w => w.category !== 'By Glass');
-        let isFlipped = false;
-        let currentMode = 'flashcard';
-        let quizIndex = 0;
-        let quizScore = 0;
-        let quizWines = [];
-        let answered = {};
-        let currentProfile = 'Guest';
-        
-        const allProfiles = ['Guest', 'Jocelyn', 'TayTay', 'Jake', 'Em', 'Viny', 'Two Hummus Drew', 'Damian', 'Luke', 'Josh', 'Gracyn', 'Bailey', 'Lea'];
-        const allCategories = ['All', 'All Red', 'Red Wine', 'Captain\'s List', 'White Wine', 'Sparkling'];
-        const categories = allCategories;
+    <!-- QUIZ MODE -->
+    <div id="quizMode" class="mode-content">
+        <div class="quiz-header">
+            <div class="quiz-score-display">🔥 <span id="quizStreak">0</span> <span style="font-size:14px;color:#b89968;font-weight:400;">in a row</span></div>
+            <div class="quiz-progress-label">Question <span id="quizCurrent">1</span> / <span id="quizMax">15</span></div>
+            <button class="quiz-restart-btn" onclick="restartQuiz()">↺ Restart</button>
+        </div>
+        <div id="quizArea"></div>
+        <div class="navigation" id="quizNav">
+            <button class="nav-btn" id="quizPrevBtn" onclick="previousQuiz()">← Previous</button>
+            <button class="nav-btn" id="quizNextBtn" onclick="nextQuiz()">Next →</button>
+        </div>
+        <div class="scoreboard">
+            <div class="scoreboard-title">Leaderboard</div>
+            <div class="scoreboard-list" id="scoreboardList"></div>
+        </div>
+    </div>
+</div>
 
-        function switchMode(mode) {
-            currentMode = mode;
-            document.querySelectorAll('.mode-tab').forEach(btn => {
-                btn.classList.toggle('active', btn.textContent === (mode === 'flashcard' ? 'Flashcards' : 'Quiz'));
-            });
-            document.querySelectorAll('.mode-content').forEach(el => {
-                el.classList.remove('active');
-            });
-            if (mode === 'flashcard') {
-                document.getElementById('flashcardMode').classList.add('active');
-            } else {
-                document.getElementById('quizMode').classList.add('active');
-                renderScoreboard();
-                if (quizWines.length === 0) {
-                    initQuiz();
-                }
-                renderQuiz();
-            }
-        }
+<script>
+const winesData = [
+    {"id":0,"name":"Lunetta Prosecco","producer":"Lunetta","country":"Italy","category":"By Glass","grape":"Glera","price":9.0,"body":"Light","acidity":"Medium","tasting_notes":"Crisp and light with fine bubbles, notes of green apple, pear, and a touch of honey","food_pairings":"","story":""},
+    {"id":1,"name":"Barone Fini Pinot Grigio","producer":"Barone Fini","country":"Italy","category":"By Glass","grape":"Pinot Grigio","price":13.0,"body":"Light","acidity":"Medium","tasting_notes":"Clean and fresh with delicate notes of white peach, lemon zest, and light floral aromas","food_pairings":"","story":""},
+    {"id":2,"name":"Tenuta Regaliali Cavallo delle Fate","producer":"Tenuta Regaliali","country":"Italy","category":"By Glass","grape":"Grillo","price":15.0,"body":"Light","acidity":"Medium","tasting_notes":"Bright Sicilian white with notes of citrus, white flowers, and a clean mineral finish","food_pairings":"","story":""},
+    {"id":3,"name":"Dashwood Sauvignon Blanc","producer":"Dashwood","country":"New Zealand","category":"By Glass","grape":"Sauvignon Blanc","price":12.0,"body":"Light","acidity":"High","tasting_notes":"Vibrant New Zealand style with intense passion fruit, grapefruit, and fresh-cut grass","food_pairings":"","story":""},
+    {"id":4,"name":"Ampelidae Sauvignon Blanc","producer":"Ampelidae","country":"France","category":"By Glass","grape":"Sauvignon Blanc","price":13.0,"body":"Light","acidity":"High","tasting_notes":"Loire-inspired, crisp and herbaceous with notes of flint, citrus, and a zippy finish","food_pairings":"","story":""},
+    {"id":5,"name":"La Crema Chardonnay","producer":"La Crema","country":"California","category":"By Glass","grape":"Chardonnay","price":13.0,"body":"Medium","acidity":"Medium","tasting_notes":"Approachable Sonoma Coast Chard with apple, pear, and a subtle hint of vanilla oak","food_pairings":"","story":""},
+    {"id":6,"name":"St. Michael Weinkeller Riesling","producer":"St. Michael Weinkeller","country":"Germany","category":"By Glass","grape":"Riesling","price":11.0,"body":"Light","acidity":"Medium","tasting_notes":"Off-dry German Riesling with stone fruit, white flowers, and bright refreshing acidity","food_pairings":"","story":""},
+    {"id":7,"name":"Masaya Blanc","producer":"Masaya","country":"Lebanon","category":"By Glass","grape":"White Blend","price":16.0,"body":"Light","acidity":"Medium","tasting_notes":"Lebanese white blend with citrus blossom, pear, and a light herbal note on the finish","food_pairings":"","story":""},
+    {"id":8,"name":"Masaya Rose","producer":"Masaya","country":"Lebanon","category":"By Glass","grape":"Cinsault","price":16.0,"body":"Light","acidity":"Medium","tasting_notes":"Lebanese rosé from Cinsault grapes — dry, fresh strawberry, watermelon, and a floral lift","food_pairings":"","story":""},
+    {"id":9,"name":"Stella Rosa Moscato","producer":"Stella Rosa","country":"Italy","category":"By Glass","grape":"Moscato","price":12.0,"body":"Light","acidity":"Low","tasting_notes":"Semi-sweet, lightly fizzy with peach, apricot, and orange blossom — approachable and dessert-adjacent","food_pairings":"","story":""},
+    {"id":10,"name":"Bishops Peak Pinot Noir","producer":"Bishops Peak","country":"California","category":"By Glass","grape":"Pinot Noir","price":13.0,"body":"Medium","acidity":"Medium","tasting_notes":"Central Coast Pinot with soft red cherry, dried herbs, and a smooth easy-drinking finish","food_pairings":"","story":""},
+    {"id":11,"name":"Domaine des Tourelles","producer":"Domaine des Tourelles","country":"Lebanon","category":"By Glass","grape":"Red Blend","price":14.0,"body":"Medium","acidity":"Medium","tasting_notes":"Classic Lebanese red blend with warm spice, red plum, dried herbs, and gentle tannins","food_pairings":"","story":""},
+    {"id":12,"name":"Tommasso Cabernet Sauvignon","producer":"Tommasso","country":"California","category":"By Glass","grape":"Cabernet Sauvignon","price":15.0,"body":"Full","acidity":"Medium","tasting_notes":"Approachable California Cab with dark cherry, cedar, and a soft tannic finish","food_pairings":"","story":""},
+    {"id":13,"name":"Tapestry Red Blend by BV","producer":"Tapestry","country":"California","category":"By Glass","grape":"Red Blend","price":13.0,"body":"Full","acidity":"Medium","tasting_notes":"Napa-style blend with blackberry, mocha, and toasty oak — rich and round on the palate","food_pairings":"","story":""},
+    {"id":14,"name":"Septima Reserva Malbec","producer":"Septima Reserva","country":"Argentina","category":"By Glass","grape":"Malbec","price":14.0,"body":"Full","acidity":"Medium","tasting_notes":"Mendoza Malbec with ripe dark plum, violet florals, and a smooth velvety finish","food_pairings":"","story":""},
+    {"id":15,"name":"La Rioja Alta Vina Alberdi","producer":"La Rioja Alta","country":"Spain","category":"By Glass","grape":"Tempranillo","price":17.0,"body":"Medium","acidity":"Medium","tasting_notes":"Rioja Reserva with cherry, dried fig, vanilla oak, and a classic Spanish earthy finish","food_pairings":"","story":""},
+    {"id":16,"name":"Marchesi Antinori Sangiovese","producer":"Marchesi Antinori","country":"Italy","category":"By Glass","grape":"Sangiovese","price":16.0,"body":"Medium","acidity":"High","tasting_notes":"Tuscan Sangiovese with tart cherry, tobacco, dried herbs, and firm refreshing acidity","food_pairings":"","story":""},
+    {"id":17,"name":"Le Colombier","producer":"Le Colombier","country":"Lebanon","category":"By Glass","grape":"Red Blend","price":16.0,"body":"Medium","acidity":"Medium","tasting_notes":"Smooth Lebanese red with berry fruit, subtle oak, light tannins, and a clean finish","food_pairings":"","story":""},
+    {"id":18,"name":"Roscato Rosso","producer":"Roscato","country":"Italy","category":"By Glass","grape":"Blend","price":12.0,"body":"Light","acidity":"Medium","tasting_notes":"Semi-sweet Italian red blend — slightly sparkling, red berry fruits, and low tannins","food_pairings":"","story":""},
+    {"id":19,"name":"Gramona Gessamí *organic*","producer":"Gramona","country":"Spain","category":"White Wine","grape":"White Blend","price":65.0,"body":"Medium","acidity":"Medium","tasting_notes":"Soft nose and smooth. Tree fruit like peach, pear, apple along with some citrus like lemon and lime. Low floral notes of jasmine and honeysuckle.","food_pairings":"","story":""},
+    {"id":20,"name":"La Spinetta Vermentino","producer":"La Spinetta","country":"Italy","category":"White Wine","grape":"Vermentino","price":70.0,"body":"Medium","acidity":"High","tasting_notes":"Refreshing citrus taste, high quality acidity, earthy notes of honey and stone","food_pairings":"","story":""},
+    {"id":21,"name":"Illumination Sauvignon Blanc","producer":"Illumination","country":"California","category":"White Wine","grape":"Sauvignon Blanc","price":75.0,"body":"Medium","acidity":"High","tasting_notes":"lemon zest, honeysuckle, peach blossom, all elevated by lovely acidity","food_pairings":"","story":""},
+    {"id":22,"name":"Domaine Melanie Pfister Alsace Blend","producer":"Domaine Melanie Pfister","country":"France","category":"White Wine","grape":"Alsace Blend","price":75.0,"body":"Medium","acidity":"Medium","tasting_notes":"Orange blossom and honey on first notes, citrus scents, acidity of apricot and pear","food_pairings":"","story":""},
+    {"id":23,"name":"Stag's Leap Karta Chardonnay","producer":"Stag's Leap","country":"California","category":"White Wine","grape":"Chardonnay","price":80.0,"body":"Medium","acidity":"Medium","tasting_notes":"Bold wine consisting of oaky notes. Velvety and creamy, more vibrant fruit notes than butter","food_pairings":"","story":""},
+    {"id":24,"name":"Maison Nicolas Les Champs Clos","producer":"Maison Nicolas","country":"France","category":"White Wine","grape":"Sauvignon Blanc","price":80.0,"body":"Light","acidity":"High","tasting_notes":"Vibrant and flavorful. Crisp with citrus notes","food_pairings":"","story":""},
+    {"id":25,"name":"Wolf & Woman Chenin Blanc","producer":"Wolf & Woman","country":"South Africa","category":"White Wine","grape":"Chenin Blanc","price":85.0,"body":"Medium","acidity":"Medium","tasting_notes":"Nose is floral and vibrant with lime zest, citrus blossom, and a touch of stone fruit. On palate its textural, citrusy, and has a mineral finish","food_pairings":"","story":""},
+    {"id":26,"name":"Ramey Chardonnay","producer":"Ramey","country":"California","category":"White Wine","grape":"Chardonnay","price":90.0,"body":"Medium","acidity":"Medium","tasting_notes":"Lends notes of apricot, lemon and slate that mellows out to toasted baking spices with buttery oak finish","food_pairings":"","story":""},
+    {"id":27,"name":"Rombauer Chardonnay","producer":"Rombauer","country":"California","category":"White Wine","grape":"Chardonnay","price":100.0,"body":"Full","acidity":"Low","tasting_notes":"Great balance of fruit and butter with a oaky finish that leaves a nice lingering feeling on palate","food_pairings":"","story":""},
+    {"id":28,"name":"Oliver Leflaive Fernand Vergelesses","producer":"Oliver Leflaive","country":"France","category":"White Wine","grape":"Chardonnay","price":125.0,"body":"Medium","acidity":"Medium","tasting_notes":"Aromas of hawthron, acacia that advertise with time amber and honey, spices. Bright mouth","food_pairings":"","story":""},
+    {"id":29,"name":"Darioush Viognier","producer":"Darioush","country":"California","category":"White Wine","grape":"Viognier","price":135.0,"body":"Medium","acidity":"Low","tasting_notes":"Notable crisp green apple acidity pleases the palate while flavors of pear and white nectorine harmonize with a nuanced finish accented by orange zest","food_pairings":"","story":""},
+    {"id":30,"name":"Domaine Belargus Chenin Blanc","producer":"Domaine Belargus","country":"France","category":"White Wine","grape":"Chenin Blanc","price":200.0,"body":"Medium","acidity":"High","tasting_notes":"Intense aromatic nose with apricot, honey dried fig. On palate fine balanced with ripe sweet fruits","food_pairings":"","story":""},
+    {"id":31,"name":"Isxir Altitudes Red Blend","producer":"Isxir","country":"Lebanon","category":"Red Wine","grape":"Red Blend","price":55.0,"body":"Full","acidity":"Medium","tasting_notes":"Fresh aromas of red and black fruits, touch of oak. On palate is blackcurrant and blackberry merge","food_pairings":"","story":""},
+    {"id":32,"name":"Saint Hills Black Dalmatian Zinfandel","producer":"Saint Hills","country":"Croatia","category":"Red Wine","grape":"Zinfandel","price":60.0,"body":"Full","acidity":"Medium","tasting_notes":"On nose is leather, plum, slightly oxidised. Palate consists of great fruit balance. Low tannins","food_pairings":"","story":""},
+    {"id":33,"name":"El Enemigo Malbec","producer":"El Enemigo","country":"Argentina","category":"Red Wine","grape":"Malbec","price":65.0,"body":"Full","acidity":"Medium","tasting_notes":"Ripe blackberry, dark plum. Smooth tannins. Velvety. Finishes with savory spice and whisper of toasted oak. Great with lamb chops and steak","food_pairings":"","story":""},
+    {"id":34,"name":"Chateau Musar Juene","producer":"Chateau Musar","country":"Lebanon","category":"Red Wine","grape":"Red Blend","price":70.0,"body":"Medium","acidity":"Medium","tasting_notes":"Freshy cherry and berry flavors. Spice and red licorice fill the finish","food_pairings":"","story":""},
+    {"id":35,"name":"Bravium Pinot Noir","producer":"Bravium","country":"California","category":"Red Wine","grape":"Pinot Noir","price":70.0,"body":"Medium","acidity":"High","tasting_notes":"Medium tannins, light acid, mild nose of strawberry and raspberry. Slightly bitter finish. Mostly you get strawberry, oak, and mineral","food_pairings":"","story":""},
+    {"id":36,"name":"Ornelia Le Volte Tuscan Blend","producer":"Ornelia","country":"Italy","category":"Red Wine","grape":"Tuscan Blend","price":75.0,"body":"Medium","acidity":"High","tasting_notes":"Nose has lively fruit notes of red fruits and rose petals. On palate its full, dense tannic texture and vibrant acidity.","food_pairings":"","story":""},
+    {"id":37,"name":"Clark & Telephone Pinot Noir","producer":"Clark & Telephone","country":"California","category":"Red Wine","grape":"Pinot Noir","price":75.0,"body":"Medium","acidity":"High","tasting_notes":"Dry red wine, velvety tannins, deep oaky notes of chocolate and tobacco perfectly balanced with cherry and blackberry","food_pairings":"","story":""},
+    {"id":38,"name":"Domaine de Chateaumar Grenache/Syrah","producer":"Domaine de Chateaumar","country":"France","category":"Red Wine","grape":"Grenache/Syrah","price":80.0,"body":"Full","acidity":"Medium","tasting_notes":"Powerful scents of cherry-vanilla, cassis. Plump red and dark berry flavors, hint of bitter chocolate. Fine grained tannins","food_pairings":"","story":""},
+    {"id":39,"name":"Austin Hope Cabernet Sauvignon","producer":"Austin Hope","country":"California","category":"Red Wine","grape":"Cabernet Sauvignon","price":90.0,"body":"Full","acidity":"Medium","tasting_notes":"Ripe dark fruit notes like blackberry and plum, complimented by cassis, mocha, subtle spice. On palate you get a full bodied experience with velvety tannins, satisfying finish","food_pairings":"","story":""},
+    {"id":40,"name":"Duckhorn Cabernet Sauvignon","producer":"Duckhorn","country":"California","category":"Red Wine","grape":"Cabernet Sauvignon","price":100.0,"body":"Full","acidity":"Medium","tasting_notes":"Mouth filling wine with ripe, integrated tannins. Aromas of toffee and hickory. On palate you get rich black currant and blueberry. Underscored by subtle notes of earth and oak","food_pairings":"","story":""},
+    {"id":41,"name":"Malleolus Tempranillo","producer":"Vina Volk","country":"Spain","category":"Red Wine","grape":"Tempranillo","price":100.0,"body":"Full","acidity":"Medium","tasting_notes":"Nose of intense black fruit, Palate is powerful, velvety and excellent integration between fruit and wood","food_pairings":"","story":""},
+    {"id":42,"name":"Vina Vik Bordeaux Blend","producer":"Vina Vik","country":"Chile","category":"Red Wine","grape":"Bordeaux Blend","price":100.0,"body":"Full","acidity":"Medium","tasting_notes":"Aromas of strawberry, raspberry, and vanilla. On palate has thin silky fresh attack, elegant tannins","food_pairings":"","story":""},
+    {"id":43,"name":"Willful Wine Curvé Pinot Noir","producer":"Willful Wine","country":"Oregon","category":"Red Wine","grape":"Pinot Noir","price":110.0,"body":"Medium","acidity":"High","tasting_notes":"Elegant, complex, balanced. Lovely spice and cherry aromatics, plum, dark berry, and earthy notes.","food_pairings":"","story":""},
+    {"id":44,"name":"Tenuta Regaliali Rosso Del Conte","producer":"Tenuta Regaliali","country":"Italy","category":"Red Wine","grape":"Red Blend","price":110.0,"body":"Medium","acidity":"Medium","tasting_notes":"Enticing aromas of marasca cherries and herbs with undertones of vanilla and tobacco. On palate, you get silky tannins, rich body, long flavorful finish.","food_pairings":"","story":""},
+    {"id":45,"name":"Quilt Reserve Cabernet Sauvignon","producer":"Quilt Reserve","country":"California","category":"Red Wine","grape":"Cabernet Sauvignon","price":115.0,"body":"Full","acidity":"Medium","tasting_notes":"Smooth and silky, well balanced, tastes of vanilla and chocolate along with some blackberry","food_pairings":"","story":""},
+    {"id":46,"name":"Frank Family Cabernet Sauvignon","producer":"Frank Family","country":"California","category":"Red Wine","grape":"Cabernet Sauvignon","price":115.0,"body":"Full","acidity":"Medium","tasting_notes":"Bursts with aromas of cocoa powder mingled with blackberries and vanilla. On palate bursts with juicy cherries and roasted figs","food_pairings":"","story":""},
+    {"id":47,"name":"Acinum Prosecco","producer":"Acinum","country":"Italy","category":"Sparkling","grape":"Glera","price":45.0,"body":"Light","acidity":"Medium","tasting_notes":"Crisp acidity, low sugar, plenty of fruit and character. Great option for a sparkling wine that isn't champagne","food_pairings":"","story":""},
+    {"id":48,"name":"Le Grand Courtage Grande Cuvée Rose","producer":"Le Grand Courtage","country":"France","category":"Sparkling","grape":"Rose","price":50.0,"body":"Light","acidity":"Medium","tasting_notes":"Deliciously seductive. Smooth, perfect balance of freshness, fruit, acidity and sweetness.","food_pairings":"","story":""},
+    {"id":49,"name":"Lanson Pere & Fils Brut","producer":"Lanson","country":"France","category":"Sparkling","grape":"Champagne Blend","price":80.0,"body":"Light","acidity":"High","tasting_notes":"Lemon on the nose. Apple and vanilla on finish. Light and acidic","food_pairings":"","story":""},
+    {"id":50,"name":"Laurent Perrier La Cuvée Brut","producer":"Laurent Perrier","country":"France","category":"Sparkling","grape":"Champagne Blend","price":130.0,"body":"Light","acidity":"High","tasting_notes":"Citrus, lemons, apples, light earth and minerals. Long finish of lime and grapefruits. Well balanced. Not bitter nor tart","food_pairings":"","story":""},
+    {"id":51,"name":"Veuve Clicquot Brut","producer":"Veuve Clicquot","country":"France","category":"Sparkling","grape":"Champagne Blend","price":145.0,"body":"Light","acidity":"High","tasting_notes":"Quick tanginess on the tip of tongue initially, then a slow finish. Lemon acidity.","food_pairings":"","story":""},
+    {"id":52,"name":"Bollinger AYC Brut","producer":"Bollinger","country":"France","category":"Sparkling","grape":"Champagne Blend","price":240.0,"body":"Light","acidity":"High","tasting_notes":"Flavor of pear with aromas of lemon, lime, and fresh cut grass","food_pairings":"","story":""},
+    {"id":53,"name":"Dom Perignon","producer":"Dom Perignon","country":"France","category":"Sparkling","grape":"Champagne Blend","price":550.0,"body":"Light","acidity":"High","tasting_notes":"Floral, fruity pastel tone then unfolds and quickly darkens into candied fruit, ripe hay, and toasted notes. Hints of licorice","food_pairings":"","story":""},
+    {"id":54,"name":"San Polo Brunello di Montalcino","producer":"San Polo","country":"Italy","category":"Captain's List","grape":"Brunello","price":120.0,"body":"Full","acidity":"Medium","tasting_notes":"Aromas of violets and small red berries. Light note of vanilla and aromatic wood. On palate is leather and citrus pith bitters","food_pairings":"","story":""},
+    {"id":55,"name":"El Isxir Red Blend","producer":"El Isxir","country":"Lebanon","category":"Captain's List","grape":"Red Blend","price":120.0,"body":"Full","acidity":"Medium","tasting_notes":"Aromas of red fruits. The palate has a nice mineral tension and great limestone terroirs. Finish gives an extended length and reveals great aging aptitude","food_pairings":"","story":""},
+    {"id":56,"name":"Caymus Cabernet Sauvignon","producer":"Caymus","country":"California","category":"Captain's List","grape":"Cabernet Sauvignon","price":135.0,"body":"Full","acidity":"Medium","tasting_notes":"Vibrant, oaky, and earthy Napa Cab. Subtle black fruit undertones. Bold and velvety.","food_pairings":"","story":""},
+    {"id":57,"name":"Artemis Stags Leap Cabernet Sauvignon","producer":"Artemis Stags Leap","country":"California","category":"Captain's List","grape":"Cabernet Sauvignon","price":135.0,"body":"Full","acidity":"Medium","tasting_notes":"Oak, vanilla, chocolate with a hint of spice to the nose. Smooth, bold, hints of dark fruits","food_pairings":"","story":""},
+    {"id":58,"name":"R. Lopez de Heredia Vina Tondonia Reserva","producer":"R. Lopez de Heredia","country":"Spain","category":"Captain's List","grape":"Tempranillo","price":140.0,"body":"Medium","acidity":"Medium","tasting_notes":"Light fresh texture with notes of vanilla and dried berry aromas. Rich, very dry, smooth and developed.","food_pairings":"","story":""},
+    {"id":59,"name":"Papillon Orin Swift Bordeaux Blend","producer":"Papillon Orin Swift","country":"California","category":"Captain's List","grape":"Bordeaux Blend","price":145.0,"body":"Full","acidity":"Medium","tasting_notes":"Lively perfume of crushed boysenberry, spring flowers, hint of toast. Flavors of ripe plum, mocha and dark chocolate. Polished tannins present on finish.","food_pairings":"","story":""},
+    {"id":60,"name":"Ca 'Rome' Barolo Rapet","producer":"Ca 'Rome'","country":"Italy","category":"Captain's List","grape":"Nebbiolo","price":165.0,"body":"Full","acidity":"High","tasting_notes":"Full bodied, perfectly balanced components, fruit, tannins, and acidity. Pleasant finish","food_pairings":"","story":""},
+    {"id":61,"name":"Chateau de Pommard Clos Marey-Monge","producer":"Chateau de Pommard","country":"France","category":"Captain's List","grape":"Pinot Noir","price":175.0,"body":"Medium","acidity":"High","tasting_notes":"Boldly elegant pinot noir with notes of red fruit, mushroom, leather and oak, slightly tannic aftertaste.","food_pairings":"","story":""},
+    {"id":62,"name":"Silver Oak Cabernet Sauvignon","producer":"Silver Oak","country":"California","category":"Captain's List","grape":"Cabernet Sauvignon","price":175.0,"body":"Full","acidity":"Medium","tasting_notes":"Excellent dark fruit, cherry, earth and cedar flavors. Soft and velvety","food_pairings":"","story":""},
+    {"id":63,"name":"Alion Tempranillo","producer":"Alion","country":"Spain","category":"Captain's List","grape":"Tempranillo","price":190.0,"body":"Full","acidity":"Medium","tasting_notes":"Black plum, cassis, oak, dark chocolate","food_pairings":"","story":""},
+    {"id":64,"name":"Barbaresco Valeirano La Spinetta","producer":"Barbaresco Valeirano","country":"Italy","category":"Captain's List","grape":"Nebbiolo","price":200.0,"body":"Full","acidity":"High","tasting_notes":"Powerful nose of red fruit. Velvety taste of blackcurrant, leather, tobacco and mushroom. Great with lamb","food_pairings":"","story":""},
+    {"id":65,"name":"Don Melchor Cabernet Sauvignon","producer":"Don Melchor","country":"Chile","category":"Captain's List","grape":"Cabernet Sauvignon","price":225.0,"body":"Full","acidity":"Medium","tasting_notes":"Dry full bodied complex aroma wine. Touch of leather, oakyness, vanilla, licorice and dark chocolate. Long tasting floral aroma","food_pairings":"","story":""},
+    {"id":66,"name":"Bertani Amarone Della Valpolicella Classico","producer":"Bertani","country":"Italy","category":"Captain's List","grape":"Amarone","price":240.0,"body":"Full","acidity":"Low","tasting_notes":"Ripe, bold, dry. Greets palate with a strong burst of tannins. Mellows into a deep plum with hints of vanilla","food_pairings":"","story":""},
+    {"id":67,"name":"Antinori Tignanello Super Tuscan","producer":"Antinori","country":"Italy","category":"Captain's List","grape":"Super Tuscan","price":260.0,"body":"Full","acidity":"Medium","tasting_notes":"Ripe fruit, including plums, blackberries and cherries. Notes of chocolate, coffee, and floral hints","food_pairings":"","story":""},
+    {"id":68,"name":"Chateau Musar Hochar 2018","producer":"Chateau Musar","country":"Lebanon","category":"Captain's List","grape":"Red Blend","price":180.0,"body":"Full","acidity":"Medium","tasting_notes":"Nose of cigar box, warm leather, baked fruits. Palate gives intense flavours of red cherries, dark chocolate, olives, figs and velvet smooth tannins","food_pairings":"","story":""},
+    {"id":69,"name":"Chateau Musar Hochar 2012","producer":"Chateau Musar","country":"Lebanon","category":"Captain's List","grape":"Red Blend","price":220.0,"body":"Full","acidity":"Medium","tasting_notes":"Nose of cigar box, warm leather, baked fruits. Palate gives intense flavours of red cherries, dark chocolate, olives, figs and velvet smooth tannins","food_pairings":"","story":""},
+    {"id":70,"name":"Chateau Musar Hochar 2002","producer":"Chateau Musar","country":"Lebanon","category":"Captain's List","grape":"Red Blend","price":300.0,"body":"Full","acidity":"Medium","tasting_notes":"Nose of cigar box, warm leather, baked fruits. Palate gives intense flavours of red cherries, dark chocolate, olives, figs and velvet smooth tannins","food_pairings":"","story":""},
+    {"id":71,"name":"Caymus Special Selection Cabernet","producer":"Caymus","country":"California","category":"Captain's List","grape":"Cabernet Sauvignon","price":350.0,"body":"Full","acidity":"Medium","tasting_notes":"Black fruit and vanilla. Finish with a hint of red currant. Dry, nice acidity, and tannins.","food_pairings":"","story":""},
+    {"id":72,"name":"Quintessa Cabernet Sauvignon","producer":"Quintessa","country":"California","category":"Captain's List","grape":"Cabernet Sauvignon","price":400.0,"body":"Full","acidity":"Medium","tasting_notes":"Aromas of fresh cherry and blackberry layered with notes of violets, graphite, and hints of cedar spice","food_pairings":"","story":""},
+    {"id":73,"name":"Opus One Red Blend","producer":"Opus One","country":"California","category":"Captain's List","grape":"Red Blend","price":675.0,"body":"Full","acidity":"Medium","tasting_notes":"Aromas of blackberry, rose petals, chocolate, and espresso accentuate fruity and earthy nuances. Round velvety tannins enrobe a silky texture with a touch of mineralitty. The flavours of dark fruit are enhanced by the acidity.","food_pairings":"","story":""}
+];
 
-        function initQuiz() {
-            let availableWines = [...filteredWines].filter(w => w.tasting_notes);
-            quizWines = availableWines.sort(() => Math.random() - 0.5).slice(0, 15);
-            quizIndex = 0;
-            quizScore = 0;
-            answered = {};
-            updateQuizCounter();
-            renderScoreboard();
-        }
+let currentIndex = 0;
+let filteredWines = winesData.filter(w => w.category !== 'By Glass');
+let isFlipped = false;
+let currentMode = 'flashcard';
+let quizIndex = 0;
+let quizScore = 0;
+let quizWines = [];
+let answered = {};
+let currentProfile = 'Guest';
+let showReview = false;
+let currentStreak = 0;
+let longestStreak = 0;
 
-        function renderQuiz() {
-            const quizArea = document.getElementById('quizArea');
-            if (!quizWines[quizIndex]) {
-                quizArea.innerHTML = '<div class="empty-state"><p>Quiz complete! Review your results or try again.</p></div>';
-                return;
-            }
+const allProfiles = ['Guest','Jocelyn','TayTay','Jake','Em','Viny','Two Hummus Drew','Damian','Luke','Josh','Gracyn','Bailey','Lea'];
+const allCategories = ['All','By Glass','All Red','Red Wine','Captain\'s List','White Wine','Sparkling'];
+let activeCategory = 'All';
 
-            const wine = quizWines[quizIndex];
-            const options = getQuizOptions(wine);
-            const isAnswered = answered[quizIndex] !== undefined;
-            const isCorrect = answered[quizIndex] === wine.id;
+// ─── KEYBOARD NAVIGATION ────────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+    if (currentMode === 'flashcard') {
+        if (e.key === 'ArrowRight') nextCard();
+        else if (e.key === 'ArrowLeft') previousCard();
+        else if (e.key === ' ') { e.preventDefault(); flipCard(); }
+    } else if (currentMode === 'quiz') {
+        if (e.key === 'ArrowRight') nextQuiz();
+        else if (e.key === 'ArrowLeft') previousQuiz();
+    }
+});
 
-            quizArea.innerHTML = `
-                <div class="quiz-question">
-                    <div class="question-label">Identify this wine</div>
-                    <div class="question-text">${wine.tasting_notes || 'A mysterious wine...'}</div>
-                    <div class="options">
-                        ${options.map((opt, idx) => `
-                            <button class="option-btn ${isAnswered ? (opt.id === wine.id ? 'correct' : answered[quizIndex] === opt.id ? 'incorrect' : '') : ''}" 
-                                    onclick="answerQuiz(${opt.id})" 
-                                    ${isAnswered ? 'disabled' : ''}>
-                                ${opt.name}
-                            </button>
-                        `).join('')}
-                    </div>
-                    ${isAnswered ? `
-                        <div class="quiz-feedback ${isCorrect ? 'correct' : 'incorrect'}">
-                            ${isCorrect ? '✓ Correct!' : `✗ Incorrect. It was ${wine.name} by ${wine.producer}`}
-                        </div>
-                    ` : ''}
+// ─── MODE SWITCH ────────────────────────────────────────────────────────────
+function switchMode(mode) {
+    currentMode = mode;
+    document.querySelectorAll('.mode-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === (mode === 'flashcard' ? 'Flashcards' : 'Quiz'));
+    });
+    document.querySelectorAll('.mode-content').forEach(el => el.classList.remove('active'));
+    if (mode === 'flashcard') {
+        document.getElementById('flashcardMode').classList.add('active');
+    } else {
+        document.getElementById('quizMode').classList.add('active');
+        renderScoreboard();
+        if (quizWines.length === 0) initQuiz();
+        renderQuiz();
+    }
+}
+
+// ─── QUIZ ────────────────────────────────────────────────────────────────────
+function initQuiz() {
+    let pool = [...filteredWines].filter(w => w.tasting_notes);
+    quizWines = pool.sort(() => Math.random() - 0.5).slice(0, 15);
+    quizIndex = 0; quizScore = 0; answered = {}; showReview = false;
+    currentStreak = 0; longestStreak = 0;
+    document.getElementById('quizTotal').textContent = quizWines.length;
+    document.getElementById('quizMax').textContent = quizWines.length;
+    updateQuizCounter();
+    renderScoreboard();
+}
+
+function restartQuiz() {
+    quizWines = [];
+    initQuiz();
+    renderQuiz();
+}
+
+function renderQuiz() {
+    const quizArea = document.getElementById('quizArea');
+    const quizNav = document.getElementById('quizNav');
+
+    // All answered → show completion
+    const allDone = quizWines.length > 0 && Object.keys(answered).length === quizWines.length;
+
+    if (allDone && quizIndex === quizWines.length) {
+        quizNav.style.display = 'none';
+        renderQuizComplete(quizArea);
+        return;
+    }
+    quizNav.style.display = 'flex';
+
+    if (!quizWines[quizIndex]) {
+        quizArea.innerHTML = '<div class="empty-state"><p>No wines available for quiz in this category.</p></div>';
+        return;
+    }
+
+    const wine = quizWines[quizIndex];
+    const options = getQuizOptions(wine);
+    const isAnswered = answered[quizIndex] !== undefined;
+    const isCorrect = answered[quizIndex] === wine.id;
+
+    quizArea.innerHTML = `
+        <div class="quiz-question">
+            <div class="question-label">Identify this wine</div>
+            <div class="question-text">${wine.tasting_notes}</div>
+            <div class="options">
+                ${options.map(opt => `
+                    <button class="option-btn ${isAnswered ? (opt.id === wine.id ? 'correct' : answered[quizIndex] === opt.id ? 'incorrect' : '') : ''}"
+                            onclick="answerQuiz(${opt.id})"
+                            ${isAnswered ? 'disabled' : ''}>
+                        ${opt.name}
+                    </button>
+                `).join('')}
+            </div>
+            ${isAnswered ? `
+                <div class="quiz-feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                    ${isCorrect ? '✓ Correct!' : `✗ The answer was <strong>${wine.name}</strong> by ${wine.producer}`}
                 </div>
-            `;
-        }
+            ` : ''}
+        </div>
+    `;
+}
 
-        function getQuizOptions(wine) {
-            const correct = { id: wine.id, name: wine.name };
-            const others = filteredWines
-                .filter(w => w.id !== wine.id && w.tasting_notes)
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 3)
-                .map(w => ({ id: w.id, name: w.name }));
-            
-            return [correct, ...others].sort(() => Math.random() - 0.5);
-        }
+function renderQuizComplete(container) {
+    const pct = Math.round((quizScore / quizWines.length) * 100);
+    let grade, gradeColor;
+    if (longestStreak >= 10) { grade = '🏆 On Fire!'; gradeColor = '#d4af9a'; }
+    else if (longestStreak >= 7) { grade = '🥂 Solid Run!'; gradeColor = '#7cb77f'; }
+    else if (longestStreak >= 4) { grade = '📚 Getting There'; gradeColor = '#d4af9a'; }
+    else { grade = '🍇 Keep Practicing'; gradeColor = '#d97070'; }
 
-        function answerQuiz(wineId) {
-            const wine = quizWines[quizIndex];
-            answered[quizIndex] = wineId;
-            if (wineId === wine.id) {
-                quizScore++;
-            }
-            document.getElementById('quizScore').textContent = quizScore;
-            
-            // Check if quiz is complete and save score
-            if (quizIndex === quizWines.length - 1) {
-                saveScore(currentProfile, quizScore);
-                renderScoreboard();
-            }
-            
-            renderQuiz();
-        }
-
-        function nextQuiz() {
-            if (quizIndex < quizWines.length - 1) {
-                quizIndex++;
-                updateQuizCounter();
-                renderQuiz();
-            }
-        }
-
-        function previousQuiz() {
-            if (quizIndex > 0) {
-                quizIndex--;
-                updateQuizCounter();
-                renderQuiz();
-            }
-        }
-
-        function updateQuizCounter() {
-            document.getElementById('quizPrevBtn').disabled = quizIndex === 0;
-            document.getElementById('quizNextBtn').disabled = quizIndex === quizWines.length - 1;
-        }
-
-        function changeProfile() {
-            currentProfile = document.getElementById('profileSelect').value;
-            localStorage.setItem('wineTrainingProfile', currentProfile);
-        }
-
-        function loadProfile() {
-            const saved = localStorage.getItem('wineTrainingProfile');
-            if (saved && allProfiles.includes(saved)) {
-                currentProfile = saved;
-            }
-            document.getElementById('profileSelect').value = currentProfile;
-        }
-
-        function getProfileScore(profile) {
-            const scores = JSON.parse(localStorage.getItem('wineScores') || '{}');
-            return scores[profile] || 0;
-        }
-
-        function saveScore(profile, score) {
-            const scores = JSON.parse(localStorage.getItem('wineScores') || '{}');
-            if (!scores[profile] || score > scores[profile]) {
-                scores[profile] = score;
-                localStorage.setItem('wineScores', JSON.stringify(scores));
-            }
-        }
-
-        function renderScoreboard() {
-            const scoreboardList = document.getElementById('scoreboardList');
-            const rankings = allProfiles
-                .filter(name => name !== 'Guest')
-                .map(name => ({ name, score: getProfileScore(name) }))
-                .sort((a, b) => b.score - a.score);
-
-            scoreboardList.innerHTML = rankings
-                .map((entry, idx) => `
-                    <div class="scoreboard-row">
-                        <div class="scoreboard-rank">#${idx + 1}</div>
-                        <div class="scoreboard-name">${entry.name}</div>
-                        <div class="scoreboard-score">${entry.score}/15</div>
-                    </div>
-                `).join('');
-        }
-
-        function init() {
-            loadProfile();
-            renderFilters();
-            renderCard();
-            updateProgress();
-        }
-
-        function renderFilters() {
-            const filterGroup = document.getElementById('filterGroup');
-            categories.forEach(cat => {
-                const btn = document.createElement('button');
-                btn.className = 'filter-btn' + (cat === 'All' ? ' active' : '');
-                btn.textContent = cat;
-                btn.onclick = () => filterByCategory(cat);
-                filterGroup.appendChild(btn);
-            });
-        }
-
-        function filterByCategory(category) {
-            if (category === 'All') {
-                filteredWines = winesData.filter(w => w.category !== 'By Glass');
-            } else if (category === 'All Red') {
-                filteredWines = winesData.filter(w => (w.category === 'Red Wine' || w.category === 'Captain\'s List') && w.category !== 'By Glass');
-            } else {
-                filteredWines = winesData.filter(w => w.category === category && w.category !== 'By Glass');
-            }
-            currentIndex = 0;
-            isFlipped = false;
-            quizWines = [];
-            renderCard();
-            updateProgress();
-            updateFilterButtons(category);
-        }
-
-        function updateFilterButtons(active) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.textContent === active);
-            });
-        }
-
-        function renderCard() {
-            const cardArea = document.getElementById('cardArea');
-            const wine = filteredWines[currentIndex];
-
-            if (!wine) {
-                cardArea.innerHTML = '<div class="empty-state"><p>No wines in this category</p></div>';
-                return;
-            }
-
-            cardArea.innerHTML = `
-                <div class="card-container">
-                    <div class="card ${isFlipped ? 'flipped' : ''}" onclick="flipCard()">
-                        <div class="card-face card-front">
-                            <div class="card-category">${wine.category}</div>
-                            <div class="card-title">${wine.name}</div>
-                            <div class="card-producer">${wine.producer}</div>
-                            <div class="card-meta">
-                                <div class="meta-item">
-                                    <div class="meta-label">Country</div>
-                                    <div class="meta-value">${wine.country}</div>
-                                </div>
-                                <div class="meta-item">
-                                    <div class="meta-label">Grape</div>
-                                    <div class="meta-value">${wine.grape}</div>
-                                </div>
-                                <div class="meta-item">
-                                    <div class="meta-label">Price</div>
-                                    <div class="meta-value">$${wine.price}</div>
-                                </div>
-                            </div>
-                            <div class="card-hint">Click to see tasting notes →</div>
-                        </div>
-                        <div class="card-face card-back">
-                            ${wine.body ? `<div class="card-section">
-                                <div class="section-label">Body & Acidity</div>
-                                <div class="section-content">${wine.body} body • ${wine.acidity} acidity</div>
-                            </div>` : ''}
-                            ${wine.tasting_notes ? `<div class="card-section">
-                                <div class="section-label">Tasting Notes</div>
-                                <div class="section-content">${wine.tasting_notes}</div>
-                            </div>` : ''}
-                            ${wine.food_pairings ? `<div class="card-section">
-                                <div class="section-label">Food Pairings</div>
-                                <div class="section-content">${wine.food_pairings}</div>
-                            </div>` : ''}
-                            ${!wine.body && !wine.tasting_notes && !wine.food_pairings ? '<div class="section-content" style="color: #8b6f47; font-style: italic;">More details coming soon</div>' : ''}
-                            <div class="card-hint" style="top: auto; bottom: 16px;">← Click to flip back</div>
+    const reviewHTML = showReview ? `
+        <div class="review-list">
+            ${quizWines.map((wine, i) => {
+                const correct = answered[i] === wine.id;
+                const userWine = winesData.find(w => w.id === answered[i]);
+                return `
+                    <div class="review-item ${correct ? 'correct-item' : 'incorrect-item'}">
+                        <div class="review-icon">${correct ? '✓' : '✗'}</div>
+                        <div>
+                            <div class="review-wine">${wine.name}</div>
+                            ${!correct ? `<div class="review-answer wrong">You chose: ${userWine ? userWine.name : 'No answer'}</div>` : ''}
+                            <div class="review-answer" style="color:#6b5040;font-size:11px;margin-top:4px;">${wine.tasting_notes.substring(0, 80)}…</div>
                         </div>
                     </div>
+                `;
+            }).join('')}
+        </div>
+    ` : '';
+
+    container.innerHTML = `
+        <div class="quiz-complete">
+            <div class="quiz-complete-title">Quiz Complete!</div>
+            <div class="quiz-complete-score">🔥 ${longestStreak}</div>
+            <div class="quiz-complete-label">best streak &nbsp;·&nbsp; ${quizScore}/${quizWines.length} correct (${pct}%)</div>
+            <div class="quiz-complete-grade" style="color:${gradeColor}">${grade}</div>
+            <button class="review-toggle" onclick="toggleReview()">${showReview ? 'Hide' : 'Review Answers'}</button>
+            <button class="quiz-restart-btn" onclick="restartQuiz()">↺ New Quiz</button>
+            ${reviewHTML}
+        </div>
+    `;
+}
+
+function toggleReview() {
+    showReview = !showReview;
+    const quizArea = document.getElementById('quizArea');
+    renderQuizComplete(quizArea);
+}
+
+function getQuizOptions(wine) {
+    const correct = { id: wine.id, name: wine.name };
+    const others = filteredWines
+        .filter(w => w.id !== wine.id && w.tasting_notes)
+        .sort(() => Math.random() - 0.5).slice(0, 3)
+        .map(w => ({ id: w.id, name: w.name }));
+    return [correct, ...others].sort(() => Math.random() - 0.5);
+}
+
+function answerQuiz(wineId) {
+    const wine = quizWines[quizIndex];
+    if (answered[quizIndex] !== undefined) return;
+    answered[quizIndex] = wineId;
+    if (wineId === wine.id) {
+        quizScore++;
+        currentStreak++;
+        if (currentStreak > longestStreak) longestStreak = currentStreak;
+    } else {
+        currentStreak = 0;
+    }
+    document.getElementById('quizStreak').textContent = currentStreak;
+
+    const allDone = Object.keys(answered).length === quizWines.length;
+    if (allDone) {
+        saveScore(currentProfile, longestStreak);
+        renderScoreboard();
+    }
+    renderQuiz();
+}
+
+function nextQuiz() {
+    if (quizIndex < quizWines.length - 1) { quizIndex++; updateQuizCounter(); renderQuiz(); }
+    else if (Object.keys(answered).length === quizWines.length) {
+        quizIndex = quizWines.length;
+        document.getElementById('quizNav').style.display = 'none';
+        renderQuizComplete(document.getElementById('quizArea'));
+    }
+}
+
+function previousQuiz() {
+    if (quizIndex > 0) { quizIndex--; updateQuizCounter(); renderQuiz(); }
+}
+
+function updateQuizCounter() {
+    document.getElementById('quizCurrent').textContent = quizIndex + 1;
+    document.getElementById('quizPrevBtn').disabled = quizIndex === 0;
+    document.getElementById('quizNextBtn').disabled = false;
+}
+
+// ─── PROFILE / SCORES ────────────────────────────────────────────────────────
+function changeProfile() {
+    currentProfile = document.getElementById('profileSelect').value;
+    localStorage.setItem('wineTrainingProfile', currentProfile);
+}
+function loadProfile() {
+    const saved = localStorage.getItem('wineTrainingProfile');
+    if (saved && allProfiles.includes(saved)) currentProfile = saved;
+    document.getElementById('profileSelect').value = currentProfile;
+}
+function getProfileScore(profile) {
+    const key = `wineScores_${activeCategory}`;
+    return JSON.parse(localStorage.getItem(key) || '{}')[profile] || 0;
+}
+function saveScore(profile, streak) {
+    const key = `wineScores_${activeCategory}`;
+    const scores = JSON.parse(localStorage.getItem(key) || '{}');
+    if (!scores[profile] || streak > scores[profile]) {
+        scores[profile] = streak;
+        localStorage.setItem(key, JSON.stringify(scores));
+    }
+}
+function renderScoreboard() {
+    const list = document.getElementById('scoreboardList');
+    const title = document.querySelector('.scoreboard-title');
+    title.textContent = `${activeCategory} — Best Streak`;
+    const rankings = allProfiles
+        .filter(n => n !== 'Guest')
+        .map(n => ({ name: n, score: getProfileScore(n) }))
+        .sort((a, b) => b.score - a.score);
+    list.innerHTML = rankings.map((e, i) => `
+        <div class="scoreboard-row">
+            <div class="scoreboard-rank">#${i + 1}</div>
+            <div class="scoreboard-name">${e.name}</div>
+            <div class="scoreboard-score">${e.score > 0 ? '🔥 ' + e.score : '—'}</div>
+        </div>
+    `).join('');
+}
+
+// ─── FILTERS ─────────────────────────────────────────────────────────────────
+function renderFilters() {
+    const fg = document.getElementById('filterGroup');
+    allCategories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn' + (cat === 'All' ? ' active' : '');
+        btn.textContent = cat;
+        btn.onclick = () => filterByCategory(cat);
+        fg.appendChild(btn);
+    });
+}
+
+function filterByCategory(category) {
+    activeCategory = category;
+    if (category === 'All') {
+        filteredWines = winesData.filter(w => w.category !== 'By Glass');
+    } else if (category === 'By Glass') {
+        filteredWines = winesData.filter(w => w.category === 'By Glass');
+    } else if (category === 'All Red') {
+        filteredWines = winesData.filter(w => w.category === 'Red Wine' || w.category === "Captain's List");
+    } else {
+        filteredWines = winesData.filter(w => w.category === category);
+    }
+    currentIndex = 0; isFlipped = false; quizWines = [];
+    renderCard(); updateProgress(); updateFilterButtons(category);
+    if (currentMode === 'quiz') renderScoreboard();
+}
+
+function updateFilterButtons(active) {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === active);
+    });
+}
+
+// ─── FLASHCARDS ──────────────────────────────────────────────────────────────
+function renderCard() {
+    const cardArea = document.getElementById('cardArea');
+    const wine = filteredWines[currentIndex];
+    if (!wine) { cardArea.innerHTML = '<div class="empty-state"><p>No wines in this category</p></div>'; return; }
+
+    cardArea.innerHTML = `
+        <div class="card-container">
+            <div class="card ${isFlipped ? 'flipped' : ''}" onclick="flipCard()">
+                <div class="card-face card-front">
+                    <div class="card-category">${wine.category}</div>
+                    <div class="card-title">${wine.name}</div>
+                    <div class="card-producer">${wine.producer}</div>
+                    <div class="card-meta">
+                        <div class="meta-item"><div class="meta-label">Country</div><div class="meta-value">${wine.country}</div></div>
+                        <div class="meta-item"><div class="meta-label">Grape</div><div class="meta-value">${wine.grape}</div></div>
+                        <div class="meta-item"><div class="meta-label">Price</div><div class="meta-value">$${wine.price}</div></div>
+                    </div>
+                    <div class="card-hint">Click or press Space to see tasting notes →</div>
                 </div>
-            `;
-        }
+                <div class="card-face card-back">
+                    ${wine.body ? `<div class="card-section"><div class="section-label">Body & Acidity</div><div class="section-content">${wine.body} body · ${wine.acidity} acidity</div></div>` : ''}
+                    ${wine.tasting_notes ? `<div class="card-section"><div class="section-label">Tasting Notes</div><div class="section-content">${wine.tasting_notes}</div></div>` : ''}
+                    ${wine.food_pairings ? `<div class="card-section"><div class="section-label">Food Pairings</div><div class="section-content">${wine.food_pairings}</div></div>` : ''}
+                    ${!wine.body && !wine.tasting_notes ? '<div class="section-content" style="color:#8b6f47;font-style:italic;">More details coming soon</div>' : ''}
+                    <div class="card-hint" style="top:auto;bottom:16px;">← Click to flip back</div>
+                </div>
+            </div>
+        </div>
+    `;
+}
 
-        function flipCard() {
-            isFlipped = !isFlipped;
-            renderCard();
-        }
+function flipCard() { isFlipped = !isFlipped; renderCard(); }
+function nextCard() { if (currentIndex < filteredWines.length - 1) { currentIndex++; isFlipped = false; renderCard(); updateProgress(); } }
+function previousCard() { if (currentIndex > 0) { currentIndex--; isFlipped = false; renderCard(); updateProgress(); } }
 
-        function nextCard() {
-            if (currentIndex < filteredWines.length - 1) {
-                currentIndex++;
-                isFlipped = false;
-                renderCard();
-                updateProgress();
-            }
-        }
+function updateProgress() {
+    const total = filteredWines.length;
+    document.getElementById('progressFill').style.width = ((currentIndex + 1) / total * 100) + '%';
+    document.getElementById('currentCard').textContent = currentIndex + 1;
+    document.getElementById('totalCards').textContent = total;
+    document.getElementById('prevBtn').disabled = currentIndex === 0;
+    document.getElementById('nextBtn').disabled = currentIndex === total - 1;
+}
 
-        function previousCard() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                isFlipped = false;
-                renderCard();
-                updateProgress();
-            }
-        }
-
-        function updateProgress() {
-            const total = filteredWines.length;
-            const progress = ((currentIndex + 1) / total) * 100;
-            document.getElementById('progressFill').style.width = progress + '%';
-            document.getElementById('currentCard').textContent = currentIndex + 1;
-            document.getElementById('totalCards').textContent = total;
-            document.getElementById('prevBtn').disabled = currentIndex === 0;
-            document.getElementById('nextBtn').disabled = currentIndex === total - 1;
-        }
-
-        init();
-    </script>
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+function init() { loadProfile(); renderFilters(); renderCard(); updateProgress(); }
+init();
+</script>
 </body>
 </html>
